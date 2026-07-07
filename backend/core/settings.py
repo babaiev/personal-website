@@ -131,3 +131,7 @@ STATIC_ROOT = BASE_DIR / 'staticfiles'
 
 # CORS Settings
 CORS_ALLOW_ALL_ORIGINS = True # For development only
+
+# Proxy and CSRF settings for Cloud Run
+SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
+CSRF_TRUSTED_ORIGINS = ['https://personal-website-backend-211504890015.us-central1.run.app']
