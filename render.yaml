@@ -1,0 +1,24 @@
+services:
+  - type: web
+    name: personal-website-backend
+    env: python
+    buildCommand: "./build.sh"
+    startCommand: "cd backend && gunicorn core.wsgi:application --bind 0.0.0.0:$PORT"
+    envVars:
+      - key: PYTHON_VERSION
+        value: 3.12.0
+      - key: DATABASE_URL
+        fromDatabase:
+          name: personal-website-db
+          property: connectionString
+      - key: SECRET_KEY
+        generateValue: true
+      - key: DEBUG
+        value: "False"
+      - key: ALLOWED_HOSTS
+        value: "personal-website-backend.onrender.com"
+
+databases:
+  - name: personal-website-db
+    databaseName: personal_website
+    user: admin
