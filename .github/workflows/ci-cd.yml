@@ -53,5 +53,10 @@ jobs:
     runs-on: ubuntu-latest
     if: github.ref == 'refs/heads/main' && github.event_name == 'push'
     steps:
+      - uses: actions/checkout@v4
+      - name: Print Version
+        run: |
+          VERSION=$(cat VERSION || echo 'Unknown')
+          echo "Deploying version $VERSION"
       - name: Placeholder Deploy Step
         run: echo "Tests passed! Trigger deployment here."
