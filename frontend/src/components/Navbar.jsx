@@ -6,9 +6,8 @@ const Navbar = ({ onSubscribeClick }) => {
 
   return (
     <nav className="navbar">
-      <div className="navbar-logo" style={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-start' }}>
-        <Link to="/">VAL<span className="highlight">3R11</span></Link>
-        <span style={{ fontSize: '0.6rem', color: 'var(--text-secondary)', marginTop: '-5px', marginLeft: '2px' }}>v{import.meta.env.VITE_APP_VERSION}</span>
+      <div className="navbar-logo">
+        <Link to="/"><span className="highlight">VAL3R11</span></Link>
       </div>
       <ul className="navbar-links">
         <li>
