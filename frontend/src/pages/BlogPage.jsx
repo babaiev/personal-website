@@ -31,17 +31,30 @@ const BlogPage = () => {
         <div style={{ textAlign: 'center', marginTop: '2rem' }}>Loading posts...</div>
       ) : (
         <div className="blog-grid">
-          {posts.length > 0 ? posts.map((post) => (
-            <article key={post.id} className="card blog-card">
-              {post.cover_image && <img src={post.cover_image} alt={post.title} style={{ width: '100%', borderRadius: '8px', marginBottom: '1rem' }} />}
-              <div className="blog-meta">
-                <span className="date">{new Date(post.published_at || post.created_at).toLocaleDateString()}</span>
-              </div>
-              <h2>{post.title}</h2>
-              <p>{post.content.substring(0, 150)}...</p>
-              <Link to={`/blog/${post.slug}`} className="read-more" style={{ display: 'inline-block', marginTop: '1rem', background: 'var(--accent-color)', border: 'none', padding: '0.5rem 1rem', color: '#08110c', fontWeight: 'bold', borderRadius: '4px', cursor: 'pointer', textDecoration: 'none' }}>Read Article</Link>
-            </article>
-          )) : (
+          {posts.length > 0 ? posts.map((post) => {
+            const reaction = localStorage.getItem(`reaction_${post.slug}`);
+            return (
+              <article 
+                key={post.id} 
+                className="card blog-card" 
+                onClick={() => window.location.hash = `#/blog/${post.slug}`}
+                style={{ cursor: 'pointer', transition: 'transform 0.2s' }}
+              >
+                {post.cover_image && <img src={post.cover_image} alt={post.title} style={{ width: '100%', borderRadius: '8px', marginBottom: '1rem' }} />}
+                <div className="blog-meta">
+                  <span className="date">{new Date(post.published_at || post.created_at).toLocaleDateString()}</span>
+                  <div style={{ marginLeft: 'auto', display: 'flex', gap: '1rem', color: 'var(--text-secondary)' }}>
+                    <span>👁 {post.view_count || 0}</span>
+                    <span style={{ color: reaction === 'like' ? 'var(--accent-color)' : 'inherit', fontWeight: reaction === 'like' ? 'bold' : 'normal' }}>👍 {post.likes || 0}</span>
+                    <span style={{ color: reaction === 'dislike' ? '#ff4d4f' : 'inherit', fontWeight: reaction === 'dislike' ? 'bold' : 'normal' }}>👎 {post.dislikes || 0}</span>
+                  </div>
+                </div>
+                <h2>{post.title}</h2>
+                <p>{post.content.substring(0, 150)}...</p>
+                <div style={{ marginTop: '1rem', color: 'var(--accent-color)', fontWeight: 'bold' }}>Read Article →</div>
+              </article>
+            );
+          }) : (
             <>
               {/* Fallback Mock Data */}
               <article className="card blog-card">

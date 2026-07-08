@@ -40,6 +40,54 @@ export const fetchBlogPost = async (slug) => {
     }
 };
 
+export const incrementPostView = async (slug) => {
+    try {
+        await fetch(`${API_BASE_URL}/blog/posts/${slug}/view/`, { method: 'POST' });
+    } catch (error) {
+        console.error("Error incrementing view count:", error);
+    }
+};
+
+export const likePost = async (slug) => {
+    try {
+        const res = await fetch(`${API_BASE_URL}/blog/posts/${slug}/like/`, { method: 'POST' });
+        return await res.json();
+    } catch (error) {
+        console.error("Error liking post:", error);
+        return null;
+    }
+};
+
+export const unlikePost = async (slug) => {
+    try {
+        const res = await fetch(`${API_BASE_URL}/blog/posts/${slug}/unlike/`, { method: 'POST' });
+        return await res.json();
+    } catch (error) {
+        console.error("Error unliking post:", error);
+        return null;
+    }
+};
+
+export const dislikePost = async (slug) => {
+    try {
+        const res = await fetch(`${API_BASE_URL}/blog/posts/${slug}/dislike/`, { method: 'POST' });
+        return await res.json();
+    } catch (error) {
+        console.error("Error disliking post:", error);
+        return null;
+    }
+};
+
+export const undislikePost = async (slug) => {
+    try {
+        const res = await fetch(`${API_BASE_URL}/blog/posts/${slug}/undislike/`, { method: 'POST' });
+        return await res.json();
+    } catch (error) {
+        console.error("Error undisliking post:", error);
+        return null;
+    }
+};
+
 export const fetchNewsfeed = async () => {
     try {
         const res = await fetch(`${API_BASE_URL}/newsfeed/items/`);
