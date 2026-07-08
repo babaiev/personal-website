@@ -72,16 +72,17 @@
 }
 
 @media (max-width: 768px) {
-  .mobile-menu-btn {
+  /* --- Scrolled State: Show Hamburger Menu --- */
+  .navbar.scrolled .mobile-menu-btn {
     display: block;
   }
 
-  .navbar {
+  .navbar.scrolled {
     flex-wrap: wrap;
     padding: 1rem 1.5rem;
   }
   
-  .navbar-links {
+  .navbar.scrolled .navbar-links {
     width: 100%;
     flex-direction: column;
     align-items: center;
@@ -90,7 +91,25 @@
     display: none;
   }
 
-  .navbar-links.open {
+  .navbar.scrolled .navbar-links.open {
     display: flex;
+  }
+
+  /* --- At Top State: Show Regular Header --- */
+  .navbar.at-top .mobile-menu-btn {
+    display: none;
+  }
+
+  .navbar.at-top {
+    flex-direction: column;
+    padding: 1rem;
+  }
+  
+  .navbar.at-top .navbar-links {
+    display: flex;
+    margin-top: 1rem;
+    gap: 1rem;
+    flex-wrap: wrap;
+    justify-content: center;
   }
 }
