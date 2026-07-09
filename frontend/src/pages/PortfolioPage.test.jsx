@@ -14,7 +14,7 @@ describe('PortfolioPage', () => {
         <PortfolioPage />
       </HelmetProvider>
     );
-    expect(screen.getByText(/Loading.../i)).toBeInTheDocument();
+    expect(document.querySelector('.animate-spin')).toBeInTheDocument();
   });
 
   it('renders portfolio data when loaded', async () => {
@@ -36,6 +36,6 @@ describe('PortfolioPage', () => {
 
     expect(screen.getByText('Cool Project')).toBeInTheDocument();
     expect(screen.getByText('Developer')).toBeInTheDocument();
-    expect(screen.getByText('React')).toBeInTheDocument();
+    expect(screen.getAllByText('React')[0]).toBeInTheDocument();
   });
 });

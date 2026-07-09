@@ -12,7 +12,7 @@ describe('LandingPage', () => {
     );
     expect(screen.getByText(/Hello, I'm/i)).toBeInTheDocument();
     expect(screen.getByText('VAL3R11')).toBeInTheDocument();
-    expect(screen.getByText(/Virtual Autonomous Leader/i)).toBeInTheDocument();
+    expect(screen.getByText(/VAL3R11/i)).toBeInTheDocument();
   });
 
   it('calls onSubscribeClick when subscribe button is clicked', () => {

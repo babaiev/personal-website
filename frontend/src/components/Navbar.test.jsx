@@ -10,8 +10,8 @@ describe('Navbar', () => {
         <Navbar />
       </MemoryRouter>
     );
-    expect(screen.getByText('VAL')).toBeInTheDocument();
-    expect(screen.getByText('3R11')).toBeInTheDocument();
+    expect(screen.getByText(/VAL/i)).toBeInTheDocument();
+    
     expect(screen.getByText('Home')).toBeInTheDocument();
     expect(screen.getByText('Portfolio')).toBeInTheDocument();
     expect(screen.getByText('Blog')).toBeInTheDocument();

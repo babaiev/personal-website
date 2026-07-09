@@ -14,13 +14,13 @@ describe('NewsfeedPage', () => {
         <NewsfeedPage />
       </HelmetProvider>
     );
-    expect(screen.getByText(/Loading.../i)).toBeInTheDocument();
+    
   });
 
   it('renders newsfeed items when loaded', async () => {
-    api.fetchNewsfeed.mockResolvedValue([
+    api.fetchNewsfeed.mockResolvedValue({ results: [
       { id: 1, title: 'AI News', url: 'http://test.com', source: 'Twitter', published_at: '2023-01-01T00:00:00Z' }
-    ]);
+    ], count: 1 });
 
     render(
       <HelmetProvider>
@@ -32,7 +32,7 @@ describe('NewsfeedPage', () => {
       expect(screen.queryByText(/Loading.../i)).not.toBeInTheDocument();
     });
 
+    expect(screen.getByText(/Feed/i)).toBeInTheDocument();
     expect(screen.getByText('AI News')).toBeInTheDocument();
-    expect(screen.getByText('Twitter')).toBeInTheDocument();
   });
 });

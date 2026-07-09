@@ -25,7 +25,7 @@ describe('api functions', () => {
   });
 
   it('fetchBlogPosts handles successful response', async () => {
-    const mockData = [{ id: 1 }];
+    const mockData = { results: [{ id: 1 }], count: 1 };
     global.fetch.mockResolvedValueOnce({
       ok: true,
       json: async () => mockData
@@ -42,7 +42,7 @@ describe('api functions', () => {
   });
 
   it('fetchNewsfeed handles successful response', async () => {
-    const mockData = [{ id: 1 }];
+    const mockData = { results: [{ id: 1 }], count: 1 };
     global.fetch.mockResolvedValueOnce({
       ok: true,
       json: async () => mockData
@@ -55,7 +55,7 @@ describe('api functions', () => {
   it('fetchNewsfeed handles errors', async () => {
     global.fetch.mockRejectedValueOnce(new Error('Network error'));
     const result = await fetchNewsfeed();
-    expect(result).toEqual([]);
+    expect(result).toEqual({ results: [], count: 0 });
   });
 
   it('subscribeEmail handles successful response', async () => {

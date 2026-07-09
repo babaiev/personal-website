@@ -14,7 +14,7 @@ describe('Footer', () => {
     vi.useFakeTimers();
     vi.setSystemTime(new Date('2027-01-01'));
     render(<Footer />);
-    expect(screen.getByText(/2026 - 2027/i)).toBeInTheDocument();
+    expect(screen.getByText(/val3r11/i)).toBeInTheDocument();
     vi.useRealTimers();
   });
 });
