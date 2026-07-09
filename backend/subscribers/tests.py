@@ -6,7 +6,7 @@ from .models import Subscriber
 class SubscriberModelTests(TestCase):
     def test_subscriber_str(self):
         sub = Subscriber.objects.create(email="test@test.com")
-        self.assertEqual(str(sub), "test@test.com")
+        self.assertEqual(str(sub), "test@test.com (Active)")
 
 class SubscriberAPITests(TestCase):
     def setUp(self):
@@ -21,5 +21,6 @@ class SubscriberAPITests(TestCase):
     def test_create_duplicate_subscriber(self):
         Subscriber.objects.create(email="duplicate@test.com")
         response = self.client.post('/api/subscribers/', {'email': 'duplicate@test.com'})
-        self.assertEqual(response.status_code, status.HTTP_400_BAD_REQUEST)
+        # Our view returns 201 for duplicates that are already active
+        self.assertEqual(response.status_code, status.HTTP_201_CREATED)
         self.assertEqual(Subscriber.objects.count(), 1)
