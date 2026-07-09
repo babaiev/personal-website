@@ -35,35 +35,36 @@ def unsubscribe(request, token):
     return render(request, 'subscribers/unsubscribe_confirm.html', {'subscriber': subscriber})
 
 @csrf_exempt
-def sender_webhook(request):
+def mailersend_webhook(request):
     if request.method == 'POST':
         try:
             payload = json.loads(request.body)
-            # Parse robustly for various ESP webhook formats (Sender.net uses basic flat json usually)
+            # MailerSend webhook payload format:
+            # {"events": [{"type": "activity.bounced", "data": {"email": {"recipient": {"email": "..."}}}}, ...]}
+            # Or simpler: the 'type' is at root depending on webhook version, but let's parse safely
             events = payload.get('events', [payload])
             
             for event in events:
-                event_type = event.get('type') or event.get('event') or event.get('action')
+                event_type = event.get('type')
                 
+                # Try to extract email from nested data
                 email = None
-                # Try Sender.net flat structure or nested
-                if 'email' in event and isinstance(event['email'], str):
+                try:
+                    email = event.get('data', {}).get('email', {}).get('recipient', {}).get('email')
+                except AttributeError:
+                    pass
+                
+                # Fallback if structure differs
+                if not email and 'email' in event:
                     email = event['email']
-                elif 'subscriber' in event and isinstance(event['subscriber'], dict):
-                    email = event['subscriber'].get('email')
-                else:
-                    try:
-                        email = event.get('data', {}).get('email', {}).get('recipient', {}).get('email')
-                    except AttributeError:
-                        pass
                     
-                if event_type in ['activity.bounced', 'activity.spam_complaint', 'bounced', 'spam', 'complaint'] and email:
+                if event_type in ['activity.bounced', 'activity.spam_complaint'] and email:
                     try:
                         subscriber = Subscriber.objects.get(email=email)
                         subscriber.is_active = False
-                        if 'bounce' in str(event_type).lower():
+                        if event_type == 'activity.bounced':
                             subscriber.is_bounced = True
-                        if 'spam' in str(event_type).lower() or 'complaint' in str(event_type).lower():
+                        elif event_type == 'activity.spam_complaint':
                             subscriber.is_spam_complaint = True
                         subscriber.save()
                     except Subscriber.DoesNotExist:

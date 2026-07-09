@@ -7,8 +7,8 @@ import requests
 import os
 import threading
 
-SENDER_API_KEY = os.environ.get('SENDER_API_KEY', '')
-SENDER_URL = 'https://api.sender.net/v2/message/send'
+MAILERSEND_API_KEY = os.environ.get('MAILERSEND_API_KEY', '')
+MAILERSEND_URL = 'https://api.mailersend.com/v1/email'
 
 @receiver(pre_save, sender=Post)
 def capture_previous_published_state(sender, instance, **kwargs):
@@ -24,45 +24,53 @@ def capture_previous_published_state(sender, instance, **kwargs):
 def send_batch_emails_thread(post_id):
     try:
         post = Post.objects.get(pk=post_id)
+        # We can send to all active subscribers or chunk them. MailerSend Bulk API handles large volumes.
         active_subscribers = list(Subscriber.objects.filter(is_active=True))
         
-        if not active_subscribers or not SENDER_API_KEY:
+        if not active_subscribers or not MAILERSEND_API_KEY:
             return
 
         site_url = os.environ.get('SITE_URL', 'https://val3r11.com')
         post_url = f"{site_url}/blog/{post.slug}/"
         
-        headers = {
-            "Content-Type": "application/json",
-            "Accept": "application/json",
-            "Authorization": f"Bearer {SENDER_API_KEY}"
+        context = {
+            'post_title': post.title,
+            'post_snippet': post.content[:150] + '...',
+            'post_url': post_url,
+            'post_image_url': f"{site_url}{post.cover_image.url}" if post.cover_image else None
+            # Note: We do NOT pass unsubscribe_url here. It will be injected by MailerSend via {$unsubscribe_url}
         }
         
-        # Use a session for faster sequential requests
-        with requests.Session() as session:
-            session.headers.update(headers)
+        html_content = render_to_string('emails/new_post.html', context)
+        
+        to_list = []
+        personalization = []
+        
+        for sub in active_subscribers:
+            to_list.append({"email": sub.email})
+            unsubscribe_url = f"{site_url}/api/subscribers/unsubscribe/{sub.unsubscribe_token}/"
+            personalization.append({
+                "email": sub.email,
+                "data": {
+                    "unsubscribe_url": unsubscribe_url
+                }
+            })
             
-            for sub in active_subscribers:
-                unsubscribe_url = f"{site_url}/api/subscribers/unsubscribe/{sub.unsubscribe_token}/"
-                
-                context = {
-                    'post_title': post.title,
-                    'post_snippet': post.content[:150] + '...',
-                    'post_url': post_url,
-                    'post_image_url': f"{site_url}{post.cover_image.url}" if post.cover_image else None,
-                    'unsubscribe_url': unsubscribe_url
-                }
-                
-                html_content = render_to_string('emails/new_post.html', context)
-                
-                payload = {
-                    "from": {"name": "VAL3R11", "email": "info@val3r11.com"},
-                    "to": {"email": sub.email},
-                    "subject": f"New Post: {post.title}",
-                    "html": html_content
-                }
-                
-                session.post(SENDER_URL, json=payload)
+        payload = {
+            "from": {"name": "VAL3R11", "email": "info@val3r11.com"},
+            "to": to_list,
+            "subject": f"New Post: {post.title}",
+            "html": html_content,
+            "personalization": personalization
+        }
+        
+        headers = {
+            "Content-Type": "application/json",
+            "X-Requested-With": "XMLHttpRequest",
+            "Authorization": f"Bearer {MAILERSEND_API_KEY}"
+        }
+        
+        requests.post(MAILERSEND_URL, headers=headers, json=payload)
     except Exception as e:
         pass # Optionally log the error
 
