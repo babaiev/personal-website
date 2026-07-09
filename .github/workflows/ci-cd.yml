@@ -55,8 +55,6 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - name: Print Version
-        run: |
-          VERSION=$(cat VERSION || echo 'Unknown')
-          echo "Deploying version $VERSION"
+        run: echo "Version is dynamically calculated during build"
       - name: Placeholder Deploy Step
         run: echo "Tests passed! Trigger deployment here."
