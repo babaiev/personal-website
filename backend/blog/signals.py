@@ -69,11 +69,16 @@ def send_batch_emails_thread(post_id):
             "X-Requested-With": "XMLHttpRequest",
             "Authorization": f"Bearer {MAILERSEND_API_KEY}"
         }
-        
-        requests.post(MAILERSEND_URL, headers=headers, json=payload)
+        response = requests.post(MAILERSEND_URL, headers=headers, json=payload)
+        response.raise_for_status()
+        print(f"Successfully sent MailerSend broadcast! Status: {response.status_code}")
     except Exception as e:
-        pass # Optionally log the error
-
+        import traceback
+        error_msg = f"Failed to send MailerSend broadcast: {e}\n{traceback.format_exc()}"
+        if 'response' in locals() and hasattr(response, 'text'):
+            error_msg += f"\nMailerSend Response: {response.text}"
+        print(error_msg)
+        
 @receiver(post_save, sender=Post)
 def trigger_batch_emails(sender, instance, created, **kwargs):
     if instance.is_published and not getattr(instance, '_was_published', False):
