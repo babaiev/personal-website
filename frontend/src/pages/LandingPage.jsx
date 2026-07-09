@@ -3,13 +3,17 @@ import { Helmet } from 'react-helmet-async';
 
 const contentData = {
   corporate: {
-    val: { title: "Virtual Autonomous Leader", desc: "Managing complex projects, operations, and technical structures at EPAM & beyond." },
+    v: { title: "Virtual", desc: "Managing complex projects across digital landscapes." },
+    a: { title: "Autonomous", desc: "Self-driven operations and technical structures." },
+    l: { title: "Leader", desc: "At EPAM & beyond." },
     3: { title: "3rd generation iteration", desc: "Because the first two iterations burned out while performing manual backlog cleaning operations." },
     r: { title: "Remote operations only", desc: "Operating continuously across clouds, systems, and workspaces from any coordinates." },
     11: { title: "One-to-One pairing ratio with AI", desc: "Harnessing advanced intelligence workflows for accelerated design, writing, and coding." }
   },
   honest: {
-    val: { title: "Virtual Assistant's Local", desc: "Just a guy from Bucha trying to automate his life before it automates him." },
+    v: { title: "Virtual", desc: "Just a guy from Bucha" },
+    a: { title: "Assistant's", desc: "trying to automate his life" },
+    l: { title: "Local", desc: "before it automates him." },
     3: { title: "3mployee", desc: "Corporate cog by day, mad scientist with Google Apps Script by night." },
     r: { title: "Responsible for", desc: "Taking the blame when the sprint fails or the API key expires." },
     11: { title: "1nventing 1mpediments", desc: "Because if the process is too smooth, are we even doing Agile right?" }
@@ -56,10 +60,26 @@ const LandingPage = ({ onSubscribeClick }) => {
       {/* Decoding Name Grid */}
       <div className="max-w-2xl mx-auto grid grid-cols-1 gap-4 relative">
         <div className="bg-brand-card/60 backdrop-blur border-glow rounded-2xl p-6 flex items-start gap-4 transition-all duration-300 group">
-          <div className="w-12 h-12 rounded-xl bg-brand-accent/10 flex items-center justify-center font-bold text-brand-accent flex-shrink-0 text-lg">VAL</div>
+          <div className="w-12 h-12 rounded-xl bg-brand-accent/10 flex items-center justify-center font-bold text-brand-accent flex-shrink-0 text-lg">V</div>
           <div className="pt-1 transition-all duration-300">
-            <h4 className="text-white font-semibold text-lg mb-1">{data.val.title}</h4>
-            <p className="text-brand-textMuted text-sm">{data.val.desc}</p>
+            <h4 className="text-white font-semibold text-lg mb-1">{data.v.title}</h4>
+            <p className="text-brand-textMuted text-sm">{data.v.desc}</p>
+          </div>
+        </div>
+
+        <div className="bg-brand-card/60 backdrop-blur border-glow rounded-2xl p-6 flex items-start gap-4 transition-all duration-300 group">
+          <div className="w-12 h-12 rounded-xl bg-brand-accent/10 flex items-center justify-center font-bold text-brand-accent flex-shrink-0 text-lg">A</div>
+          <div className="pt-1 transition-all duration-300">
+            <h4 className="text-white font-semibold text-lg mb-1">{data.a.title}</h4>
+            <p className="text-brand-textMuted text-sm">{data.a.desc}</p>
+          </div>
+        </div>
+
+        <div className="bg-brand-card/60 backdrop-blur border-glow rounded-2xl p-6 flex items-start gap-4 transition-all duration-300 group">
+          <div className="w-12 h-12 rounded-xl bg-brand-accent/10 flex items-center justify-center font-bold text-brand-accent flex-shrink-0 text-lg">L</div>
+          <div className="pt-1 transition-all duration-300">
+            <h4 className="text-white font-semibold text-lg mb-1">{data.l.title}</h4>
+            <p className="text-brand-textMuted text-sm">{data.l.desc}</p>
           </div>
         </div>
 
