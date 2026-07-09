@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Unsubscribe | VAL3R11</title>
+<style>
+  body {
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    background-color: #0d0d0d;
+    color: #ffffff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+  }
+  .container {
+    max-width: 400px;
+    background-color: #141414;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 12px;
+    padding: 40px;
+    text-align: center;
+  }
+  h1 { font-size: 20px; margin-top: 0; }
+  p { color: #a0a0a0; line-height: 1.5; margin-bottom: 30px; }
+  .btn {
+    background-color: #2EE56B;
+    color: #0d0d0d;
+    border: none;
+    padding: 12px 24px;
+    border-radius: 8px;
+    font-weight: bold;
+    cursor: pointer;
+    font-size: 16px;
+    width: 100%;
+  }
+  .btn:hover { background-color: #27c95e; }
+</style>
+</head>
+<body>
+  <div class="container">
+    <h1>Confirm Unsubscribe</h1>
+    <p>Are you sure you want to unsubscribe <strong>{{ subscriber.email }}</strong> from VAL3R11 blog updates?</p>
+    <form method="POST">
+      {% csrf_token %}
+      <button type="submit" class="btn">Yes, unsubscribe me</button>
+    </form>
+  </div>
+</body>
+</html>
