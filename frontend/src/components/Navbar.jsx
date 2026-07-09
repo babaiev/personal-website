@@ -17,7 +17,20 @@ const Navbar = ({ onSubscribeClick }) => {
     <header className="sticky top-0 z-40 bg-brand-bg/80 backdrop-blur-md border-b border-white/[0.04]">
       <div className="max-w-6xl mx-auto px-6 h-20 flex items-center justify-between">
         <Link to="/" className="flex items-center gap-2 group" onClick={closeMobileMenu}>
-          <img src="/logo.png" alt="VAL3R11 Logo" className="w-8 h-8 rounded-lg object-cover transition-transform duration-300 group-hover:scale-105" />
+          <div 
+            className="w-8 h-8 bg-brand-accent transition-transform duration-300 group-hover:scale-105" 
+            style={{ 
+              WebkitMaskImage: 'url(/logo.png)', 
+              WebkitMaskSize: 'contain',
+              WebkitMaskRepeat: 'no-repeat',
+              WebkitMaskPosition: 'center',
+              maskImage: 'url(/logo.png)',
+              maskSize: 'contain',
+              maskRepeat: 'no-repeat',
+              maskPosition: 'center'
+            }}
+            aria-label="VAL3R11 Logo"
+          ></div>
           <span className="text-xl font-extrabold tracking-wider text-white">
             VAL<span className="text-brand-accent transition-all duration-300 group-hover:glow-text">3</span>R11
           </span>
