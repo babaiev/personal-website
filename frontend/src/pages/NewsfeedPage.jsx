@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { Helmet } from 'react-helmet-async';
 import { fetchNewsfeed } from '../api';
+import { Rss, ExternalLink } from 'lucide-react';
 
 const NewsfeedPage = () => {
   const [items, setItems] = useState([]);
@@ -16,49 +17,66 @@ const NewsfeedPage = () => {
   }, []);
 
   return (
-    <div className="page-container fade-in">
+    <div className="space-y-12 animate-fade-in max-w-4xl mx-auto w-full">
       <Helmet>
         <title>VAL3R11 | AI Newsfeed</title>
         <meta name="description" content="Latest updates and curations from the AI world by VAL3R11." />
       </Helmet>
-      <header className="page-header">
-        <h1>AI Newsfeed</h1>
-        <p>Latest updates and curations from the AI world.</p>
+      
+      <header className="text-center space-y-4 pt-10">
+        <h1 className="text-5xl font-extrabold tracking-tight text-white flex items-center justify-center gap-4">
+          <Rss className="w-10 h-10 text-brand-accent" /> AI Newsfeed
+        </h1>
+        <p className="text-brand-textMuted text-lg">Latest updates and curations from the AI world.</p>
       </header>
 
       {loading ? (
-        <div style={{ textAlign: 'center', marginTop: '2rem' }}>Loading newsfeed...</div>
+        <div className="flex justify-center mt-12">
+          <div className="w-12 h-12 rounded-2xl border-4 border-brand-accent/20 border-t-brand-accent animate-spin"></div>
+        </div>
       ) : (
-        <div className="feed-list" style={{ display: 'flex', flexDirection: 'column', gap: '1.5rem', maxWidth: '800px', margin: '0 auto' }}>
+        <div className="space-y-6 pt-6">
           {items.length > 0 ? items.map((item) => (
-            <div key={item.id} className="feed-item card" style={{ padding: '1.5rem' }}>
-              <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '0.5rem' }}>
-                <span style={{ color: 'var(--accent-color)', fontWeight: 'bold' }}>{item.source}</span>
-                <span className="feed-date" style={{ color: 'var(--text-secondary)', fontSize: '0.9rem' }}>
+            <div key={item.id} className="bg-brand-card/60 backdrop-blur border-glow rounded-3xl p-8 hover:-translate-y-1 transition-transform duration-300">
+              <div className="flex items-center justify-between mb-4 border-b border-white/[0.04] pb-4">
+                <span className="px-3 py-1 rounded-lg bg-brand-accent/10 text-brand-accent text-xs font-bold tracking-wide uppercase">{item.source}</span>
+                <span className="text-brand-textMuted text-sm font-medium">
                   {new Date(item.published_at).toLocaleDateString()}
                 </span>
               </div>
-              <h3><a href={item.url} target="_blank" rel="noopener noreferrer" style={{ color: 'var(--text-primary)', textDecoration: 'none' }}>{item.title}</a></h3>
-              <p style={{ marginTop: '0.5rem' }}>{item.summary}</p>
+              <h3 className="text-2xl font-bold text-white mb-3">
+                <a href={item.url} target="_blank" rel="noopener noreferrer" className="hover:text-brand-accent transition-colors flex items-center gap-2 group">
+                  {item.title}
+                  <ExternalLink className="w-5 h-5 opacity-0 group-hover:opacity-100 transition-opacity" />
+                </a>
+              </h3>
+              <p className="text-brand-textMuted leading-relaxed">{item.summary}</p>
             </div>
           )) : (
             <>
               {/* Fallback Mock Data */}
-              <div className="feed-item card" style={{ padding: '1.5rem' }}>
-                <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '0.5rem' }}>
-                  <span style={{ color: 'var(--accent-color)', fontWeight: 'bold' }}>TechCrunch</span>
-                  <span className="feed-date" style={{ color: 'var(--text-secondary)', fontSize: '0.9rem' }}>Jul 7, 2026</span>
+              <div className="bg-brand-card/60 backdrop-blur border-glow rounded-3xl p-8 hover:-translate-y-1 transition-transform duration-300">
+                <div className="flex items-center justify-between mb-4 border-b border-white/[0.04] pb-4">
+                  <span className="px-3 py-1 rounded-lg bg-brand-accent/10 text-brand-accent text-xs font-bold tracking-wide uppercase">TechCrunch</span>
+                  <span className="text-brand-textMuted text-sm font-medium">Jul 7, 2026</span>
                 </div>
-                <h3>New Large Language Model Released</h3>
-                <p style={{ marginTop: '0.5rem' }}>Exploring the capabilities of the latest state-of-the-art models in reasoning and coding tasks.</p>
+                <h3 className="text-2xl font-bold text-white mb-3 hover:text-brand-accent transition-colors cursor-pointer flex items-center gap-2 group">
+                  New Large Language Model Released
+                  <ExternalLink className="w-5 h-5 opacity-0 group-hover:opacity-100 transition-opacity" />
+                </h3>
+                <p className="text-brand-textMuted leading-relaxed">Exploring the capabilities of the latest state-of-the-art models in reasoning and coding tasks.</p>
               </div>
-              <div className="feed-item card" style={{ padding: '1.5rem' }}>
-                <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '0.5rem' }}>
-                  <span style={{ color: 'var(--accent-color)', fontWeight: 'bold' }}>Twitter</span>
-                  <span className="feed-date" style={{ color: 'var(--text-secondary)', fontSize: '0.9rem' }}>Jul 5, 2026</span>
+              
+              <div className="bg-brand-card/60 backdrop-blur border-glow rounded-3xl p-8 hover:-translate-y-1 transition-transform duration-300">
+                <div className="flex items-center justify-between mb-4 border-b border-white/[0.04] pb-4">
+                  <span className="px-3 py-1 rounded-lg bg-brand-accent/10 text-brand-accent text-xs font-bold tracking-wide uppercase">Twitter</span>
+                  <span className="text-brand-textMuted text-sm font-medium">Jul 5, 2026</span>
                 </div>
-                <h3>Breakthroughs in AI Agents</h3>
-                <p style={{ marginTop: '0.5rem' }}>How autonomous agents are transforming software engineering and repetitive tasks.</p>
+                <h3 className="text-2xl font-bold text-white mb-3 hover:text-brand-accent transition-colors cursor-pointer flex items-center gap-2 group">
+                  Breakthroughs in AI Agents
+                  <ExternalLink className="w-5 h-5 opacity-0 group-hover:opacity-100 transition-opacity" />
+                </h3>
+                <p className="text-brand-textMuted leading-relaxed">Agents are now capable of automating complex workflows autonomously.</p>
               </div>
             </>
           )}

@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
 import { fetchBlogPost, incrementPostView, likePost, unlikePost, dislikePost, undislikePost, fetchComments, postComment } from '../api';
+import { Eye, ThumbsUp, ThumbsDown, MessageSquare, ArrowLeft, Send, CheckCircle2, AlertCircle } from 'lucide-react';
 
 const BlogPostPage = () => {
   const { slug } = useParams();
@@ -11,15 +12,14 @@ const BlogPostPage = () => {
   const [localLikes, setLocalLikes] = useState(0);
   const [localDislikes, setLocalDislikes] = useState(0);
   const [viewed, setViewed] = useState(false);
-  const [reaction, setReaction] = useState(null); // 'like', 'dislike', or null
+  const [reaction, setReaction] = useState(null);
 
   const [comments, setComments] = useState([]);
   const [commentName, setCommentName] = useState('');
   const [commentText, setCommentText] = useState('');
-  const [commentStep, setCommentStep] = useState('IDLE'); // IDLE, CAPTCHA, LOADING, SUCCESS, ERROR
+  const [commentStep, setCommentStep] = useState('IDLE');
   const [commentError, setCommentError] = useState('');
   
-  // Captcha state
   const [num1, setNum1] = useState(0);
   const [num2, setNum2] = useState(0);
   const [captchaAnswer, setCaptchaAnswer] = useState('');
@@ -33,7 +33,6 @@ const BlogPostPage = () => {
         setLocalLikes(result.likes || 0);
         setLocalDislikes(result.dislikes || 0);
         
-        // Load existing reaction from local storage
         const savedReaction = localStorage.getItem(`reaction_${slug}`);
         if (savedReaction) {
           setReaction(savedReaction);
@@ -102,13 +101,11 @@ const BlogPostPage = () => {
 
   const handleLike = async () => {
     if (reaction === 'like') {
-      // Remove like
       setReaction(null);
       setLocalLikes(prev => prev - 1);
       localStorage.removeItem(`reaction_${slug}`);
       await unlikePost(slug);
     } else {
-      // Add like
       setReaction('like');
       setLocalLikes(prev => prev + 1);
       localStorage.setItem(`reaction_${slug}`, 'like');
@@ -122,13 +119,11 @@ const BlogPostPage = () => {
 
   const handleDislike = async () => {
     if (reaction === 'dislike') {
-      // Remove dislike
       setReaction(null);
       setLocalDislikes(prev => prev - 1);
       localStorage.removeItem(`reaction_${slug}`);
       await undislikePost(slug);
     } else {
-      // Add dislike
       setReaction('dislike');
       setLocalDislikes(prev => prev + 1);
       localStorage.setItem(`reaction_${slug}`, 'dislike');
@@ -142,174 +137,178 @@ const BlogPostPage = () => {
 
   if (loading) {
     return (
-      <div className="page-container fade-in">
-        <div style={{ textAlign: 'center', marginTop: '4rem' }}>Loading article...</div>
+      <div className="space-y-12 animate-fade-in flex-grow flex items-center justify-center min-h-[50vh]">
+        <div className="w-14 h-14 rounded-2xl border-4 border-brand-accent/20 border-t-brand-accent animate-spin"></div>
       </div>
     );
   }
 
   if (error || !post) {
     return (
-      <div className="page-container fade-in">
-        <div style={{ textAlign: 'center', marginTop: '4rem' }}>
-          <h2>{error || "Post not found"}</h2>
-          <Link to="/blog" style={{ color: 'var(--accent-color)' }}>← Back to Blog</Link>
-        </div>
+      <div className="space-y-6 animate-fade-in text-center pt-20">
+        <h2 className="text-3xl font-bold text-white">{error || "Post not found"}</h2>
+        <Link to="/blog" className="inline-flex items-center gap-2 text-brand-accent hover:text-white transition-colors">
+          <ArrowLeft className="w-4 h-4" /> Back to Blog
+        </Link>
       </div>
     );
   }
 
   return (
-    <div className="page-container fade-in">
+    <div className="space-y-12 animate-fade-in max-w-4xl mx-auto w-full">
       <Helmet>
         <title>VAL3R11 | {post.title}</title>
         <meta name="description" content={post.content.substring(0, 150)} />
       </Helmet>
       
-      <div style={{ marginBottom: '2rem' }}>
-        <Link to="/blog" style={{ color: 'var(--text-secondary)', textDecoration: 'none' }}>← Back to Blog</Link>
+      <div className="pt-6">
+        <Link to="/blog" className="inline-flex items-center gap-2 text-brand-textMuted hover:text-white transition-colors">
+          <ArrowLeft className="w-4 h-4" /> Back to Blog
+        </Link>
       </div>
 
-      <article className="card" style={{ padding: '2rem' }}>
-        <div className="blog-meta" style={{ marginBottom: '1.5rem', display: 'flex', justifyContent: 'space-between' }}>
-          <span className="date">{new Date(post.published_at || post.created_at).toLocaleDateString()}</span>
-          <span style={{ color: 'var(--text-secondary)' }}>👁 {(post.view_count || 0) + (viewed ? 1 : 0)} views</span>
+      <article className="bg-brand-card/60 backdrop-blur border-glow rounded-3xl p-8 md:p-12">
+        <div className="flex items-center justify-between text-xs font-semibold uppercase tracking-wider mb-8 border-b border-white/[0.04] pb-6">
+          <span className="text-brand-accent">{new Date(post.published_at || post.created_at).toLocaleDateString()}</span>
+          <span className="flex items-center gap-1 text-brand-textMuted"><Eye className="w-4 h-4" /> {(post.view_count || 0) + (viewed ? 1 : 0)} views</span>
         </div>
-        <h1 style={{ marginBottom: '1.5rem', color: 'var(--text-primary)' }}>{post.title}</h1>
+        
+        <h1 className="text-4xl md:text-5xl font-extrabold tracking-tight text-white mb-8">{post.title}</h1>
         
         {post.cover_image && (
-          <img 
-            src={post.cover_image} 
-            alt={post.title} 
-            style={{ width: '100%', borderRadius: '8px', marginBottom: '2rem' }} 
-          />
+          <div className="rounded-2xl overflow-hidden mb-10 shadow-[0_0_30px_rgba(46,229,107,0.1)]">
+            <img 
+              src={post.cover_image} 
+              alt={post.title} 
+              className="w-full h-auto object-cover" 
+            />
+          </div>
         )}
         
-        <div style={{ lineHeight: '1.8', color: 'var(--text-primary)', whiteSpace: 'pre-wrap' }}>
+        <div className="prose prose-invert prose-lg max-w-none text-brand-textMuted prose-headings:text-white prose-a:text-brand-accent whitespace-pre-wrap leading-relaxed">
           {post.content}
         </div>
 
-        <div style={{ marginTop: '3rem', paddingTop: '2rem', borderTop: '1px solid var(--border-color)', display: 'flex', gap: '1rem' }}>
+        <div className="mt-16 pt-8 border-t border-white/[0.04] flex flex-wrap gap-4">
           <button 
             onClick={handleLike} 
-            style={{ 
-              background: reaction === 'like' ? 'var(--accent-color)' : 'var(--card-bg)', 
-              border: '1px solid ' + (reaction === 'like' ? 'var(--accent-color)' : 'var(--border-color)'), 
-              padding: '0.5rem 1rem', 
-              borderRadius: '4px', 
-              color: reaction === 'like' ? '#08110c' : 'var(--text-primary)', 
-              fontWeight: reaction === 'like' ? 'bold' : 'normal',
-              cursor: 'pointer',
-              transition: 'all 0.2s ease'
-            }}
+            className={`inline-flex items-center gap-2 px-6 py-3 rounded-2xl font-bold transition-all duration-300 ${reaction === 'like' ? 'bg-brand-accent text-black shadow-[0_0_20px_rgba(46,229,107,0.4)]' : 'bg-white/5 text-white hover:bg-white/10'}`}
           >
-            👍 Like ({localLikes})
+            <ThumbsUp className="w-5 h-5" /> Like {localLikes}
           </button>
           <button 
             onClick={handleDislike} 
-            style={{ 
-              background: reaction === 'dislike' ? '#ff4d4f' : 'var(--card-bg)', 
-              border: '1px solid ' + (reaction === 'dislike' ? '#ff4d4f' : 'var(--border-color)'), 
-              padding: '0.5rem 1rem', 
-              borderRadius: '4px', 
-              color: reaction === 'dislike' ? '#fff' : 'var(--text-primary)',
-              fontWeight: reaction === 'dislike' ? 'bold' : 'normal',
-              cursor: 'pointer',
-              transition: 'all 0.2s ease'
-            }}
+            className={`inline-flex items-center gap-2 px-6 py-3 rounded-2xl font-bold transition-all duration-300 ${reaction === 'dislike' ? 'bg-red-500 text-white shadow-[0_0_20px_rgba(239,68,68,0.4)]' : 'bg-white/5 text-white hover:bg-white/10'}`}
           >
-            👎 Dislike ({localDislikes})
+            <ThumbsDown className="w-5 h-5" /> Dislike {localDislikes}
           </button>
         </div>
       </article>
 
-      {/* Comments Section */}
-      <section className="comments-section" style={{ marginTop: '3rem' }}>
-        <h2 style={{ marginBottom: '1.5rem', color: 'var(--text-primary)' }}>Comments ({comments.length})</h2>
+      <section className="space-y-8 pt-8">
+        <div className="flex items-center gap-3 border-b border-white/[0.04] pb-4">
+          <MessageSquare className="w-6 h-6 text-brand-accent" />
+          <h2 className="text-2xl font-bold text-white">Comments ({comments.length})</h2>
+        </div>
         
-        <div className="comments-list" style={{ marginBottom: '2rem' }}>
+        <div className="space-y-4">
           {comments.map((comment, index) => (
-            <div key={index} className="card" style={{ padding: '1rem', marginBottom: '1rem', background: 'var(--bg-color)', border: '1px solid var(--border-color)' }}>
-              <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '0.5rem' }}>
-                <strong style={{ color: 'var(--text-primary)' }}>{comment.name}</strong>
-                <span style={{ fontSize: '0.85rem', color: 'var(--text-secondary)' }}>
+            <div key={index} className="bg-brand-bg/50 border border-white/[0.04] rounded-2xl p-6">
+              <div className="flex justify-between items-start mb-2">
+                <strong className="text-white font-semibold">{comment.name}</strong>
+                <span className="text-xs text-brand-textMuted">
                   {new Date(comment.created_at).toLocaleString()}
                 </span>
               </div>
-              <p style={{ margin: 0, color: 'var(--text-primary)', whiteSpace: 'pre-wrap' }}>{comment.content}</p>
+              <p className="text-brand-textMuted text-sm whitespace-pre-wrap">{comment.content}</p>
             </div>
           ))}
           {comments.length === 0 && (
-            <p style={{ color: 'var(--text-secondary)', fontStyle: 'italic' }}>No comments yet. Be the first to share your thoughts!</p>
+            <p className="text-brand-textMuted italic text-center py-8">No comments yet. Be the first to share your thoughts!</p>
           )}
         </div>
 
-        <div className="card comment-form" style={{ padding: '2rem' }}>
-          <h3 style={{ marginTop: 0, marginBottom: '1rem' }}>Leave a Comment</h3>
+        <div className="bg-brand-card/60 backdrop-blur border-glow rounded-3xl p-8 mt-12">
+          <h3 className="text-xl font-bold text-white mb-6">Leave a Comment</h3>
           
-          {commentStep === 'IDLE' || commentStep === 'ERROR' ? (
-            <>
-              {commentError && <div style={{ color: '#ff4d4f', marginBottom: '1rem' }}>{commentError}</div>}
-              <div style={{ marginBottom: '1rem' }}>
-                <label style={{ display: 'block', marginBottom: '0.5rem', fontWeight: 'bold' }}>Name *</label>
+          {(commentStep === 'IDLE' || commentStep === 'ERROR') ? (
+            <div className="space-y-5">
+              {commentError && (
+                <div className="p-4 rounded-xl bg-red-500/10 border border-red-500/20 text-red-500 text-sm flex items-center gap-2">
+                  <AlertCircle className="w-4 h-4" /> {commentError}
+                </div>
+              )}
+              
+              <div className="space-y-1.5">
+                <label className="text-sm font-semibold text-brand-textMuted pl-1">Name</label>
                 <input 
                   type="text" 
                   value={commentName}
                   onChange={(e) => setCommentName(e.target.value)}
-                  style={{ width: '100%', padding: '0.75rem', borderRadius: '4px', border: '1px solid var(--border-color)', background: 'var(--bg-color)', color: 'var(--text-primary)' }}
+                  className="w-full bg-brand-bg border border-white/[0.08] focus:border-brand-accent/40 rounded-xl px-4 py-3 text-sm text-white focus:outline-none transition-colors"
                   placeholder="Your Name"
                   required
                 />
               </div>
-              <div style={{ marginBottom: '1rem' }}>
-                <label style={{ display: 'block', marginBottom: '0.5rem', fontWeight: 'bold' }}>Comment *</label>
+              <div className="space-y-1.5">
+                <label className="text-sm font-semibold text-brand-textMuted pl-1">Comment</label>
                 <textarea 
                   value={commentText}
                   onChange={(e) => setCommentText(e.target.value)}
-                  style={{ width: '100%', padding: '0.75rem', borderRadius: '4px', border: '1px solid var(--border-color)', background: 'var(--bg-color)', color: 'var(--text-primary)', minHeight: '100px', resize: 'vertical' }}
+                  className="w-full bg-brand-bg border border-white/[0.08] focus:border-brand-accent/40 rounded-xl px-4 py-3 text-sm text-white focus:outline-none transition-colors min-h-[120px] resize-y"
                   placeholder="What are your thoughts?"
                   required
                 />
               </div>
               <button 
                 onClick={handleCommentSubmitClick}
-                style={{ background: 'var(--accent-color)', border: 'none', padding: '0.75rem 1.5rem', color: '#08110c', fontWeight: 'bold', borderRadius: '4px', cursor: 'pointer' }}
+                className="inline-flex items-center justify-center gap-2 px-8 py-3.5 rounded-xl bg-brand-accent text-black font-bold transition-all duration-300 hover:scale-[1.02]"
               >
-                Submit Comment
+                <Send className="w-4 h-4" /> Submit Comment
               </button>
-            </>
+            </div>
           ) : commentStep === 'CAPTCHA' ? (
-            <div>
-              <p style={{ marginBottom: '1rem' }}>To prove you are human, please solve this math problem:</p>
-              <div style={{ display: 'flex', alignItems: 'center', gap: '1rem', marginBottom: '1rem' }}>
-                <span style={{ fontSize: '1.2rem', fontWeight: 'bold' }}>{num1} + {num2} = </span>
+            <div className="space-y-6">
+              <div className="flex items-center gap-3 text-brand-accent bg-brand-accent/10 p-4 rounded-xl border border-brand-accent/20">
+                <AlertCircle className="w-5 h-5 shrink-0" />
+                <p className="text-sm font-medium">To prove you are human, please solve this math problem:</p>
+              </div>
+              
+              <div className="flex items-center gap-4">
+                <span className="text-2xl font-bold text-white tracking-widest">{num1} + {num2} = </span>
                 <input 
                   type="number" 
                   value={captchaAnswer} 
                   onChange={(e) => setCaptchaAnswer(e.target.value)}
-                  style={{ width: '80px', padding: '0.5rem', borderRadius: '4px', border: '1px solid var(--border-color)', background: 'var(--bg-color)', color: 'var(--text-primary)' }}
+                  className="w-24 bg-brand-bg border border-white/[0.08] focus:border-brand-accent/40 rounded-xl px-4 py-3 text-lg font-bold text-white text-center focus:outline-none transition-colors"
                 />
               </div>
-              <div style={{ display: 'flex', gap: '1rem' }}>
+              <div className="flex gap-3">
                 <button 
                   onClick={handleCaptchaSubmit}
-                  style={{ background: 'var(--accent-color)', border: 'none', padding: '0.5rem 1rem', color: '#08110c', fontWeight: 'bold', borderRadius: '4px', cursor: 'pointer' }}
+                  className="px-8 py-3 rounded-xl bg-brand-accent text-black font-bold transition-all duration-300 hover:scale-[1.02]"
                 >
                   Verify
                 </button>
                 <button 
                   onClick={() => setCommentStep('IDLE')}
-                  style={{ background: 'transparent', border: '1px solid var(--border-color)', padding: '0.5rem 1rem', color: 'var(--text-primary)', borderRadius: '4px', cursor: 'pointer' }}
+                  className="px-6 py-3 rounded-xl bg-white/5 text-white font-semibold transition-all hover:bg-white/10"
                 >
                   Cancel
                 </button>
               </div>
             </div>
           ) : commentStep === 'LOADING' ? (
-            <div style={{ textAlign: 'center', padding: '2rem 0' }}>Posting your comment...</div>
+            <div className="py-12 flex flex-col items-center justify-center gap-4">
+              <div className="w-10 h-10 rounded-xl border-4 border-brand-accent/20 border-t-brand-accent animate-spin"></div>
+              <div className="text-brand-textMuted font-medium">Posting your comment...</div>
+            </div>
           ) : commentStep === 'SUCCESS' ? (
-            <div style={{ textAlign: 'center', padding: '2rem 0', color: 'var(--accent-color)', fontWeight: 'bold' }}>
-              Comment posted successfully!
+            <div className="py-8 flex flex-col items-center justify-center gap-4 text-center">
+              <div className="w-16 h-16 rounded-full bg-emerald-500/20 flex items-center justify-center text-emerald-400 glow-green">
+                <CheckCircle2 className="w-8 h-8" />
+              </div>
+              <div className="text-xl font-bold text-white">Comment posted successfully!</div>
             </div>
           ) : null}
         </div>

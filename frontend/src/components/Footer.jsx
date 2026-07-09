@@ -1,15 +1,12 @@
-import './Footer.css';
-
 const Footer = () => {
-  const currentYear = new Date().getFullYear();
-  const startYear = 2026;
-  const yearDisplay = currentYear > startYear ? `${startYear} - ${currentYear}` : startYear;
-
   return (
-    <footer className="footer">
-      <div className="footer-content">
-        <p>&copy; {yearDisplay} <span className="highlight">VAL3R11</span>. All rights reserved.</p>
-        <p className="footer-version">v{import.meta.env.VITE_APP_VERSION}</p>
+    <footer className="border-t border-white/[0.04] bg-brand-bg py-8">
+      <div className="max-w-6xl mx-auto px-6 flex flex-col md:flex-row items-center justify-between gap-4 text-xs text-brand-textMuted">
+        <div>© 2026 <span className="text-white font-semibold">VAL3R11</span>. All rights reserved.</div>
+        <div className="flex items-center gap-6">
+          <span>Designed & automated via AI collaboration</span>
+          <span className="px-2 py-1 rounded bg-white/5 font-mono text-[10px]">v1.0.1.01</span>
+        </div>
       </div>
     </footer>
   );

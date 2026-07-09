@@ -17,12 +17,12 @@ function App() {
   return (
     <HelmetProvider>
       <Router>
-        <div className="app-container">
+        <div className="min-h-screen flex flex-col justify-between selection:bg-brand-accent selection:text-black">
           <Helmet>
             <meta name="version" content={import.meta.env.VITE_APP_VERSION} />
           </Helmet>
           <Navbar onSubscribeClick={() => setIsSubscribeOpen(true)} />
-        <main className="main-content">
+        <main className="flex-grow max-w-6xl w-full mx-auto px-6 py-12">
           <Routes>
             <Route path="/" element={<LandingPage onSubscribeClick={() => setIsSubscribeOpen(true)} />} />
             <Route path="/portfolio" element={<PortfolioPage />} />

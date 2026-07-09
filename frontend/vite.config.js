@@ -6,12 +6,14 @@ import path from 'path'
 const versionPath = path.resolve(__dirname, '../VERSION')
 const version = fs.existsSync(versionPath) ? fs.readFileSync(versionPath, 'utf-8').trim() : 'Unknown'
 
+import tailwindcss from '@tailwindcss/vite'
+
 // https://vitejs.dev/config/
 export default defineConfig({
   define: {
     'import.meta.env.VITE_APP_VERSION': JSON.stringify(version)
   },
-  plugins: [react()],
+  plugins: [react(), tailwindcss()],
   test: {
     globals: true,
     environment: 'jsdom',

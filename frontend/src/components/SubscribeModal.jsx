@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { subscribeEmail } from '../api';
-import './SubscribeModal.css';
+import { X, Mail, CheckCircle2, AlertCircle } from 'lucide-react';
 
 const SubscribeModal = ({ isOpen, onClose }) => {
   const [step, setStep] = useState('IDLE'); // IDLE, CAPTCHA, LOADING, SUCCESS, ERROR
@@ -57,66 +57,106 @@ const SubscribeModal = ({ isOpen, onClose }) => {
     }
   };
 
-  if (!isOpen) return null;
-
   return (
-    <div className="modal-overlay" onClick={onClose}>
-      <div className="modal-content" onClick={e => e.stopPropagation()}>
-        <button className="modal-close" onClick={onClose}>&times;</button>
+    <div 
+      className={`fixed inset-0 z-50 flex items-center justify-center p-6 bg-brand-bg/90 backdrop-blur-md transition-all duration-300 ${isOpen ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'}`} 
+      onClick={onClose}
+    >
+      <div 
+        className={`relative w-full max-w-md bg-brand-card rounded-3xl border border-brand-accent/20 p-8 space-y-6 shadow-[0_0_50px_rgba(46,229,107,0.15)] transform transition-all duration-300 ${isOpen ? 'scale-100' : 'scale-95'}`} 
+        onClick={e => e.stopPropagation()}
+      >
+        <button onClick={onClose} className="absolute right-6 top-6 text-brand-textMuted hover:text-white transition-colors p-1">
+          <X className="w-5 h-5" />
+        </button>
         
         {step === 'IDLE' && (
-          <div className="modal-body fade-in">
-            <h2>Join the Newsletter</h2>
-            <p>Get the latest updates directly in your inbox.</p>
-            <input 
-              type="email" 
-              placeholder="Enter your email" 
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-              className="modal-input"
-            />
-            {errorMsg && <p className="modal-error">{errorMsg}</p>}
-            <button className="modal-btn" onClick={handleSubscribeClick}>Subscribe</button>
+          <div className="space-y-6 animate-fade-in">
+            <div className="w-14 h-14 rounded-2xl bg-brand-accent/10 flex items-center justify-center text-brand-accent glow-green mx-auto">
+              <Mail className="w-7 h-7" />
+            </div>
+            <div className="text-center space-y-2">
+              <h3 className="text-2xl font-extrabold text-white">Join the Newsletter</h3>
+              <p className="text-brand-textMuted text-sm">Get the latest updates directly in your inbox.</p>
+            </div>
+            <div className="space-y-4">
+              <input 
+                type="email" 
+                placeholder="Enter your email" 
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                className="w-full bg-brand-bg border border-white/[0.08] focus:border-brand-accent/40 rounded-2xl px-5 py-4 text-sm text-white focus:outline-none transition-colors"
+              />
+              {errorMsg && <p className="text-red-500 text-sm text-center">{errorMsg}</p>}
+              <button onClick={handleSubscribeClick} className="w-full py-4 rounded-2xl bg-brand-accent text-black font-bold transition-all duration-300 hover:scale-[1.02]">
+                Subscribe
+              </button>
+            </div>
           </div>
         )}
 
         {step === 'CAPTCHA' && (
-          <div className="modal-body fade-in">
-            <h2>Human Verification</h2>
-            <p>To prevent spam, please solve this simple math problem:</p>
-            <p className="captcha-question">What is {num1} + {num2}?</p>
-            <input 
-              type="number" 
-              placeholder="Your answer" 
-              value={captchaAnswer}
-              onChange={(e) => setCaptchaAnswer(e.target.value)}
-              className="modal-input"
-            />
-            {errorMsg && <p className="modal-error">{errorMsg}</p>}
-            <button className="modal-btn" onClick={handleCaptchaSubmit}>Verify</button>
+          <div className="space-y-6 animate-fade-in">
+            <div className="w-14 h-14 rounded-2xl bg-brand-accent/10 flex items-center justify-center text-brand-accent glow-green mx-auto">
+              <AlertCircle className="w-7 h-7" />
+            </div>
+            <div className="text-center space-y-2">
+              <h3 className="text-2xl font-extrabold text-white">Human Verification</h3>
+              <p className="text-brand-textMuted text-sm">To prevent spam, please solve this simple math problem:</p>
+              <p className="text-brand-accent font-bold text-xl pt-2">What is {num1} + {num2}?</p>
+            </div>
+            <div className="space-y-4">
+              <input 
+                type="number" 
+                placeholder="Your answer" 
+                value={captchaAnswer}
+                onChange={(e) => setCaptchaAnswer(e.target.value)}
+                className="w-full bg-brand-bg border border-white/[0.08] focus:border-brand-accent/40 rounded-2xl px-5 py-4 text-sm text-white focus:outline-none transition-colors text-center"
+              />
+              {errorMsg && <p className="text-red-500 text-sm text-center">{errorMsg}</p>}
+              <button onClick={handleCaptchaSubmit} className="w-full py-4 rounded-2xl bg-brand-accent text-black font-bold transition-all duration-300 hover:scale-[1.02]">
+                Verify
+              </button>
+            </div>
           </div>
         )}
 
         {step === 'LOADING' && (
-          <div className="modal-body fade-in">
-            <h2>Subscribing...</h2>
-            <div className="loader"></div>
+          <div className="space-y-6 animate-fade-in py-8">
+            <div className="w-14 h-14 rounded-2xl border-4 border-brand-accent/20 border-t-brand-accent animate-spin mx-auto"></div>
+            <div className="text-center">
+              <h3 className="text-2xl font-extrabold text-white">Subscribing...</h3>
+            </div>
           </div>
         )}
 
         {step === 'SUCCESS' && (
-          <div className="modal-body fade-in">
-            <h2>Success! 🎉</h2>
-            <p>You have been successfully subscribed to the newsletter.</p>
-            <button className="modal-btn" onClick={onClose}>Close</button>
+          <div className="space-y-6 animate-fade-in">
+            <div className="w-14 h-14 rounded-2xl bg-emerald-500/20 flex items-center justify-center text-emerald-400 glow-green mx-auto">
+              <CheckCircle2 className="w-7 h-7" />
+            </div>
+            <div className="text-center space-y-2">
+              <h3 className="text-2xl font-extrabold text-white">Success! 🎉</h3>
+              <p className="text-brand-textMuted text-sm">You have been successfully subscribed to the newsletter.</p>
+            </div>
+            <button onClick={onClose} className="w-full py-4 rounded-2xl bg-white/10 text-white font-bold transition-all duration-300 hover:bg-white/20">
+              Close
+            </button>
           </div>
         )}
 
         {step === 'ERROR' && (
-          <div className="modal-body fade-in">
-            <h2>Subscription Failed</h2>
-            <p className="modal-error">{errorMsg}</p>
-            <button className="modal-btn" onClick={() => setStep('IDLE')}>Try Again</button>
+          <div className="space-y-6 animate-fade-in">
+            <div className="w-14 h-14 rounded-2xl bg-red-500/10 flex items-center justify-center text-red-500 mx-auto">
+              <AlertCircle className="w-7 h-7" />
+            </div>
+            <div className="text-center space-y-2">
+              <h3 className="text-2xl font-extrabold text-white">Subscription Failed</h3>
+              <p className="text-red-400 text-sm">{errorMsg}</p>
+            </div>
+            <button onClick={() => setStep('IDLE')} className="w-full py-4 rounded-2xl bg-white/10 text-white font-bold transition-all duration-300 hover:bg-white/20">
+              Try Again
+            </button>
           </div>
         )}
       </div>
