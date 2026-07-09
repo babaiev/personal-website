@@ -5,11 +5,23 @@ import tailwindcss from '@tailwindcss/vite'
 
 const getVersion = () => {
   try {
-    const featCount = execSync('git log --grep="^feat:" --oneline | wc -l').toString().trim()
-    const fixCount = execSync('git log --grep="^fix:\\|^chore:\\|^refactor:\\|^style:\\|^docs:" --oneline | wc -l').toString().trim()
-    return `2.0.${featCount}.${fixCount}`
+    const latestEpic = execSync('git log -n 1 --grep="^epic:" --format="%H"').toString().trim();
+    let epicCount = '0';
+    let featCount = '0';
+    let fixCount = '0';
+    
+    if (latestEpic) {
+      epicCount = execSync('git log --grep="^epic:" --oneline | wc -l').toString().trim();
+      featCount = execSync(`git log ${latestEpic}..HEAD --grep="^feat:" --oneline | wc -l`).toString().trim();
+      fixCount = execSync(`git log ${latestEpic}..HEAD --grep="^fix:\\|^chore:\\|^refactor:\\|^style:\\|^docs:" --oneline | wc -l`).toString().trim();
+    } else {
+      featCount = execSync('git log --grep="^feat:" --oneline | wc -l').toString().trim();
+      fixCount = execSync('git log --grep="^fix:\\|^chore:\\|^refactor:\\|^style:\\|^docs:" --oneline | wc -l').toString().trim();
+    }
+    
+    return `2.${epicCount}.${featCount}.${fixCount}`;
   } catch (e) {
-    return '2.0.0.00'
+    return '2.0.0.00';
   }
 }
 
