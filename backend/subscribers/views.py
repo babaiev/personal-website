@@ -35,24 +35,40 @@ def unsubscribe(request, token):
     return render(request, 'subscribers/unsubscribe_confirm.html', {'subscriber': subscriber})
 
 @csrf_exempt
-def brevo_webhook(request):
+def mailersend_webhook(request):
     if request.method == 'POST':
         try:
             payload = json.loads(request.body)
-            event_type = payload.get('event')
-            email = payload.get('email')
+            # MailerSend webhook payload format:
+            # {"events": [{"type": "activity.bounced", "data": {"email": {"recipient": {"email": "..."}}}}, ...]}
+            # Or simpler: the 'type' is at root depending on webhook version, but let's parse safely
+            events = payload.get('events', [payload])
             
-            if event_type in ['hard_bounce', 'complaint'] and email:
+            for event in events:
+                event_type = event.get('type')
+                
+                # Try to extract email from nested data
+                email = None
                 try:
-                    subscriber = Subscriber.objects.get(email=email)
-                    subscriber.is_active = False
-                    if event_type == 'hard_bounce':
-                        subscriber.is_bounced = True
-                    elif event_type == 'complaint':
-                        subscriber.is_spam_complaint = True
-                    subscriber.save()
-                except Subscriber.DoesNotExist:
+                    email = event.get('data', {}).get('email', {}).get('recipient', {}).get('email')
+                except AttributeError:
                     pass
+                
+                # Fallback if structure differs
+                if not email and 'email' in event:
+                    email = event['email']
+                    
+                if event_type in ['activity.bounced', 'activity.spam_complaint'] and email:
+                    try:
+                        subscriber = Subscriber.objects.get(email=email)
+                        subscriber.is_active = False
+                        if event_type == 'activity.bounced':
+                            subscriber.is_bounced = True
+                        elif event_type == 'activity.spam_complaint':
+                            subscriber.is_spam_complaint = True
+                        subscriber.save()
+                    except Subscriber.DoesNotExist:
+                        pass
             return JsonResponse({'status': 'ok'})
         except json.JSONDecodeError:
             return JsonResponse({'error': 'Invalid JSON'}, status=400)

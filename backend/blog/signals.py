@@ -7,8 +7,8 @@ import requests
 import os
 import threading
 
-BREVO_API_KEY = os.environ.get('BREVO_API_KEY', '')
-BREVO_URL = 'https://api.brevo.com/v3/smtp/email'
+MAILERSEND_API_KEY = os.environ.get('MAILERSEND_API_KEY', '')
+MAILERSEND_URL = 'https://api.mailersend.com/v1/email'
 
 @receiver(pre_save, sender=Post)
 def capture_previous_published_state(sender, instance, **kwargs):
@@ -24,9 +24,10 @@ def capture_previous_published_state(sender, instance, **kwargs):
 def send_batch_emails_thread(post_id):
     try:
         post = Post.objects.get(pk=post_id)
-        active_subscribers = Subscriber.objects.filter(is_active=True)[:300]
+        # We can send to all active subscribers or chunk them. MailerSend Bulk API handles large volumes.
+        active_subscribers = list(Subscriber.objects.filter(is_active=True))
         
-        if not active_subscribers or not BREVO_API_KEY:
+        if not active_subscribers or not MAILERSEND_API_KEY:
             return
 
         site_url = os.environ.get('SITE_URL', 'https://val3r11.com')
@@ -37,39 +38,43 @@ def send_batch_emails_thread(post_id):
             'post_snippet': post.content[:150] + '...',
             'post_url': post_url,
             'post_image_url': f"{site_url}{post.cover_image.url}" if post.cover_image else None
+            # Note: We do NOT pass unsubscribe_url here. It will be injected by MailerSend via {$unsubscribe_url}
         }
         
         html_content = render_to_string('emails/new_post.html', context)
         
-        message_versions = []
+        to_list = []
+        personalization = []
+        
         for sub in active_subscribers:
+            to_list.append({"email": sub.email})
             unsubscribe_url = f"{site_url}/api/subscribers/unsubscribe/{sub.unsubscribe_token}/"
-            message_versions.append({
-                "to": [{"email": sub.email}],
-                "params": {
+            personalization.append({
+                "email": sub.email,
+                "data": {
                     "unsubscribe_url": unsubscribe_url
                 }
             })
             
         payload = {
-            "sender": {"name": "VAL3R11", "email": "info@val3r11.com"},
+            "from": {"name": "VAL3R11", "email": "info@val3r11.com"},
+            "to": to_list,
             "subject": f"New Post: {post.title}",
-            "htmlContent": html_content,
-            "messageVersions": message_versions
+            "html": html_content,
+            "personalization": personalization
         }
         
         headers = {
-            "accept": "application/json",
-            "api-key": BREVO_API_KEY,
-            "content-type": "application/json"
+            "Content-Type": "application/json",
+            "X-Requested-With": "XMLHttpRequest",
+            "Authorization": f"Bearer {MAILERSEND_API_KEY}"
         }
         
-        requests.post(BREVO_URL, headers=headers, json=payload)
+        requests.post(MAILERSEND_URL, headers=headers, json=payload)
     except Exception as e:
         pass # Optionally log the error
 
 @receiver(post_save, sender=Post)
 def trigger_batch_emails(sender, instance, created, **kwargs):
     if instance.is_published and not getattr(instance, '_was_published', False):
-        # Run in a background thread to prevent blocking the HTTP request
         threading.Thread(target=send_batch_emails_thread, args=(instance.pk,)).start()
