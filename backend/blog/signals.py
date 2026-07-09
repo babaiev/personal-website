@@ -73,7 +73,11 @@ def send_batch_emails_thread(post_id):
             error_msg += f"\nBrevo Response: {response.text}"
         print(error_msg)
         
+from django.db import transaction
+
 @receiver(post_save, sender=Post)
 def trigger_batch_emails(sender, instance, created, **kwargs):
     if instance.is_published and not getattr(instance, '_was_published', False):
-        threading.Thread(target=send_batch_emails_thread, args=(instance.pk,)).start()
+        transaction.on_commit(
+            lambda: threading.Thread(target=send_batch_emails_thread, args=(instance.pk,)).start()
+        )
