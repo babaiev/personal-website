@@ -16,6 +16,9 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
+import os
+
+admin.site.site_url = os.environ.get('SITE_URL', 'https://valandai.com')
 
 urlpatterns = [
     path('admin/', admin.site.urls),
