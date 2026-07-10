@@ -8,24 +8,21 @@ import path from 'path';
 
 const getVersion = () => {
   try {
-    const latestEpic = execSync('git log -n 1 --grep="^epic:" --format="%H"').toString().trim();
-    let epicCount = '0';
-    let featCount = '0';
-    let fixCount = '0';
+    // Find the latest version tag (e.g., "v3.0")
+    const latestVersionTag = execSync('git describe --tags --match="v*" --abbrev=0').toString().trim();
     
-    if (latestEpic) {
-      epicCount = execSync('git log --grep="^epic:" --oneline | wc -l').toString().trim();
-      featCount = execSync(`git log ${latestEpic}..HEAD --grep="^feat:" --oneline | wc -l`).toString().trim();
-      fixCount = execSync(`git log ${latestEpic}..HEAD --grep="^fix:\\|^chore:\\|^refactor:\\|^style:\\|^docs:\\|^test:" --oneline | wc -l`).toString().trim();
-    } else {
-      featCount = execSync('git log --grep="^feat:" --oneline | wc -l').toString().trim();
-      fixCount = execSync('git log --grep="^fix:\\|^chore:\\|^refactor:\\|^style:\\|^docs:\\|^test:" --oneline | wc -l').toString().trim();
-    }
+    // Extract the major version number (x) from the tag (e.g., "v3.0" -> "3")
+    const majorVersion = latestVersionTag.replace('v', '').split('.')[0];
+
+    // Count commits exclusively since that specific tag
+    const epicCount = execSync(`git log ${latestVersionTag}..HEAD --grep="^epic:" --oneline | wc -l`).toString().trim();
+    const featCount = execSync(`git log ${latestVersionTag}..HEAD --grep="^feat:" --oneline | wc -l`).toString().trim();
+    const fixCount = execSync(`git log ${latestVersionTag}..HEAD --grep="^fix:\\|^chore:\\|^refactor:\\|^style:\\|^docs:\\|^test:" --oneline | wc -l`).toString().trim();
     
-    // Base version is 3 (x), epicCount is y, featCount is a, fixCount is bb
-    return `3.${epicCount}.${featCount}.${fixCount}`;
+    // Format: x.y.a.bb (Major.Epic.Feat.Fix)
+    return `${majorVersion}.${epicCount}.${featCount}.${fixCount}`;
   } catch (e) {
-    return '3.0.0.00';
+    return '3.0.0.0';
   }
 }
 
