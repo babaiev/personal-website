@@ -49,7 +49,8 @@ def send_batch_emails_thread(post_id):
         message_versions = []
         
         for sub in active_subscribers:
-            unsubscribe_url = f"{site_url}/api/subscribers/unsubscribe/{sub.unsubscribe_token}/"
+            backend_url = "https://valandaicom-backend-211504890015.us-central1.run.app"
+            unsubscribe_url = f"{backend_url}/api/subscribers/unsubscribe/{sub.unsubscribe_token}/"
             message_versions.append({
                 "to": [{"email": sub.email}],
                 "params": {
