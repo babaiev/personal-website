@@ -3,25 +3,14 @@ import react from '@vitejs/plugin-react'
 import { execSync } from 'child_process'
 import tailwindcss from '@tailwindcss/vite'
 
+import fs from 'fs';
+import path from 'path';
+
 const getVersion = () => {
   try {
-    const latestEpic = execSync('git log -n 1 --grep="^epic:" --format="%H"').toString().trim();
-    let epicCount = '0';
-    let featCount = '0';
-    let fixCount = '0';
-    
-    if (latestEpic) {
-      epicCount = execSync('git log --grep="^epic:" --oneline | wc -l').toString().trim();
-      featCount = execSync(`git log ${latestEpic}..HEAD --grep="^feat:" --oneline | wc -l`).toString().trim();
-      fixCount = execSync(`git log ${latestEpic}..HEAD --grep="^fix:\\|^chore:\\|^refactor:\\|^style:\\|^docs:" --oneline | wc -l`).toString().trim();
-    } else {
-      featCount = execSync('git log --grep="^feat:" --oneline | wc -l').toString().trim();
-      fixCount = execSync('git log --grep="^fix:\\|^chore:\\|^refactor:\\|^style:\\|^docs:" --oneline | wc -l').toString().trim();
-    }
-    
-    return `2.${epicCount}.${featCount}.${fixCount}`;
+    return fs.readFileSync(path.resolve(__dirname, '../VERSION'), 'utf-8').trim();
   } catch (e) {
-    return '2.0.0.00';
+    return '3.0.0.00';
   }
 }
 
