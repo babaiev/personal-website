@@ -1,4 +1,4 @@
-const API_BASE_URL = 'https://personal-website-backend-211504890015.us-central1.run.app/api';
+const API_BASE_URL = 'https://valandaicom-backend-211504890015.us-central1.run.app/api';
 
 export const fetchPortfolio = async () => {
     try {
