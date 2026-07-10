@@ -1,0 +1,1132 @@
+
+> frontend@0.0.0 test
+> vitest --run
+
+
+[1m[30m[46m RUN [49m[39m[22m [36mv4.1.10 [39m[90m/Users/valeriibabaiev/.gemini/antigravity-ide/scratch/personal-website/frontend[39m
+
+[90mstderr[2m | src/api.test.js[2m > [22m[2mapi functions[2m > [22m[2mfetchPortfolio handles errors
+[22m[39mError fetching portfolio: Error: Network error
+    at [90m/Users/valeriibabaiev/.gemini/antigravity-ide/scratch/personal-website/frontend/[39msrc/api.test.js:22:40
+    at [90mfile:///Users/valeriibabaiev/.gemini/antigravity-ide/scratch/personal-website/frontend/[39mnode_modules/[4m@vitest/runner[24m/dist/chunk-artifact.js:302:11
+    at [90mfile:///Users/valeriibabaiev/.gemini/antigravity-ide/scratch/personal-website/frontend/[39mnode_modules/[4m@vitest/runner[24m/dist/chunk-artifact.js:1903:26
+    at [90mfile:///Users/valeriibabaiev/.gemini/antigravity-ide/scratch/personal-website/frontend/[39mnode_modules/[4m@vitest/runner[24m/dist/chunk-artifact.js:2326:20
+    at new Promise (<anonymous>)
+    at runWithCancel [90m(file:///Users/valeriibabaiev/.gemini/antigravity-ide/scratch/personal-website/frontend/[39mnode_modules/[4m@vitest/runner[24m/dist/chunk-artifact.js:2323:10[90m)[39m
+    at [90mfile:///Users/valeriibabaiev/.gemini/antigravity-ide/scratch/personal-website/frontend/[39mnode_modules/[4m@vitest/runner[24m/dist/chunk-artifact.js:2305:20
+    at new Promise (<anonymous>)
+    at runWithTimeout [90m(file:///Users/valeriibabaiev/.gemini/antigravity-ide/scratch/personal-website/frontend/[39mnode_modules/[4m@vitest/runner[24m/dist/chunk-artifact.js:2272:10[90m)[39m
+    at [90mfile:///Users/valeriibabaiev/.gemini/antigravity-ide/scratch/personal-website/frontend/[39mnode_modules/[4m@vitest/runner[24m/dist/chunk-artifact.js:2955:64
+
+[90mstderr[2m | src/api.test.js[2m > [22m[2mapi functions[2m > [22m[2mfetchBlogPosts handles errors
+[22m[39mError fetching blog posts: Error: Network error
+    at [90m/Users/valeriibabaiev/.gemini/antigravity-ide/scratch/personal-website/frontend/[39msrc/api.test.js:39:40
+    at [90mfile:///Users/valeriibabaiev/.gemini/antigravity-ide/scratch/personal-website/frontend/[39mnode_modules/[4m@vitest/runner[24m/dist/chunk-artifact.js:302:11
+    at [90mfile:///Users/valeriibabaiev/.gemini/antigravity-ide/scratch/personal-website/frontend/[39mnode_modules/[4m@vitest/runner[24m/dist/chunk-artifact.js:1903:26
+    at [90mfile:///Users/valeriibabaiev/.gemini/antigravity-ide/scratch/personal-website/frontend/[39mnode_modules/[4m@vitest/runner[24m/dist/chunk-artifact.js:2326:20
+    at new Promise (<anonymous>)
+    at runWithCancel [90m(file:///Users/valeriibabaiev/.gemini/antigravity-ide/scratch/personal-website/frontend/[39mnode_modules/[4m@vitest/runner[24m/dist/chunk-artifact.js:2323:10[90m)[39m
+    at [90mfile:///Users/valeriibabaiev/.gemini/antigravity-ide/scratch/personal-website/frontend/[39mnode_modules/[4m@vitest/runner[24m/dist/chunk-artifact.js:2305:20
+    at new Promise (<anonymous>)
+    at runWithTimeout [90m(file:///Users/valeriibabaiev/.gemini/antigravity-ide/scratch/personal-website/frontend/[39mnode_modules/[4m@vitest/runner[24m/dist/chunk-artifact.js:2272:10[90m)[39m
+    at [90mfile:///Users/valeriibabaiev/.gemini/antigravity-ide/scratch/personal-website/frontend/[39mnode_modules/[4m@vitest/runner[24m/dist/chunk-artifact.js:2955:64
+
+[90mstderr[2m | src/api.test.js[2m > [22m[2mapi functions[2m > [22m[2mfetchNewsfeed handles errors
+[22m[39mError fetching newsfeed: Error: Network error
+    at [90m/Users/valeriibabaiev/.gemini/antigravity-ide/scratch/personal-website/frontend/[39msrc/api.test.js:56:40
+    at [90mfile:///Users/valeriibabaiev/.gemini/antigravity-ide/scratch/personal-website/frontend/[39mnode_modules/[4m@vitest/runner[24m/dist/chunk-artifact.js:302:11
+    at [90mfile:///Users/valeriibabaiev/.gemini/antigravity-ide/scratch/personal-website/frontend/[39mnode_modules/[4m@vitest/runner[24m/dist/chunk-artifact.js:1903:26
+    at [90mfile:///Users/valeriibabaiev/.gemini/antigravity-ide/scratch/personal-website/frontend/[39mnode_modules/[4m@vitest/runner[24m/dist/chunk-artifact.js:2326:20
+    at new Promise (<anonymous>)
+    at runWithCancel [90m(file:///Users/valeriibabaiev/.gemini/antigravity-ide/scratch/personal-website/frontend/[39mnode_modules/[4m@vitest/runner[24m/dist/chunk-artifact.js:2323:10[90m)[39m
+    at [90mfile:///Users/valeriibabaiev/.gemini/antigravity-ide/scratch/personal-website/frontend/[39mnode_modules/[4m@vitest/runner[24m/dist/chunk-artifact.js:2305:20
+    at new Promise (<anonymous>)
+    at runWithTimeout [90m(file:///Users/valeriibabaiev/.gemini/antigravity-ide/scratch/personal-website/frontend/[39mnode_modules/[4m@vitest/runner[24m/dist/chunk-artifact.js:2272:10[90m)[39m
+    at [90mfile:///Users/valeriibabaiev/.gemini/antigravity-ide/scratch/personal-website/frontend/[39mnode_modules/[4m@vitest/runner[24m/dist/chunk-artifact.js:2955:64
+
+[90mstderr[2m | src/api.test.js[2m > [22m[2mapi functions[2m > [22m[2msubscribeEmail handles API errors
+[22m[39mError subscribing: Error: This email is already subscribed.
+    at subscribeEmail [90m(/Users/valeriibabaiev/.gemini/antigravity-ide/scratch/personal-website/frontend/[39msrc/api.js:149:19[90m)[39m
+[90m    at processTicksAndRejections (node:internal/process/task_queues:104:5)[39m
+    at [90m/Users/valeriibabaiev/.gemini/antigravity-ide/scratch/personal-website/frontend/[39msrc/api.test.js:80:5
+    at [90mfile:///Users/valeriibabaiev/.gemini/antigravity-ide/scratch/personal-website/frontend/[39mnode_modules/[4m@vitest/runner[24m/dist/chunk-artifact.js:1903:20
+
+ [31m❯[39m src/api.test.js [2m([22m[2m8 tests[22m[2m | [22m[31m1 failed[39m[2m)[22m[32m 16[2mms[22m[39m
+     [32m✓[39m fetchPortfolio handles successful response[32m 3[2mms[22m[39m
+     [32m✓[39m fetchPortfolio handles errors[32m 6[2mms[22m[39m
+     [32m✓[39m fetchBlogPosts handles successful response[32m 0[2mms[22m[39m
+     [32m✓[39m fetchBlogPosts handles errors[32m 0[2mms[22m[39m
+     [32m✓[39m fetchNewsfeed handles successful response[32m 0[2mms[22m[39m
+[31m     [31m×[31m fetchNewsfeed handles errors[39m[32m 4[2mms[22m[39m
+     [32m✓[39m subscribeEmail handles successful response[32m 0[2mms[22m[39m
+     [32m✓[39m subscribeEmail handles API errors[32m 1[2mms[22m[39m
+ [31m❯[39m src/components/Footer.test.jsx [2m([22m[2m2 tests[22m[2m | [22m[31m1 failed[39m[2m)[22m[32m 33[2mms[22m[39m
+     [32m✓[39m renders footer content and version[32m 25[2mms[22m[39m
+[31m     [31m×[31m handles current year logic[39m[32m 6[2mms[22m[39m
+ [31m❯[39m src/pages/LandingPage.test.jsx [2m([22m[2m2 tests[22m[2m | [22m[31m1 failed[39m[2m)[22m[32m 47[2mms[22m[39m
+[31m     [31m×[31m renders landing page content[39m[32m 37[2mms[22m[39m
+     [32m✓[39m calls onSubscribeClick when subscribe button is clicked[32m 7[2mms[22m[39m
+ [31m❯[39m src/components/Navbar.test.jsx [2m([22m[2m1 test[22m[2m | [22m[31m1 failed[39m[2m)[22m[32m 40[2mms[22m[39m
+[31m     [31m×[31m renders navbar links[39m[32m 38[2mms[22m[39m
+ [31m❯[39m src/components/SubscribeModal.test.jsx [2m([22m[2m4 tests[22m[2m | [22m[31m1 failed[39m[2m)[22m[32m 65[2mms[22m[39m
+[31m     [31m×[31m does not render when closed[39m[32m 33[2mms[22m[39m
+     [32m✓[39m shows error for invalid email[32m 11[2mms[22m[39m
+     [32m✓[39m moves to captcha on valid email[32m 5[2mms[22m[39m
+     [32m✓[39m completes subscription flow[32m 13[2mms[22m[39m
+ [31m❯[39m src/pages/NewsfeedPage.test.jsx [2m([22m[2m2 tests[22m[2m | [22m[31m2 failed[39m[2m)[22m[32m 55[2mms[22m[39m
+[31m     [31m×[31m renders loading state initially[39m[32m 46[2mms[22m[39m
+[31m     [31m×[31m renders newsfeed items when loaded[39m[32m 7[2mms[22m[39m
+ [31m❯[39m src/pages/PortfolioPage.test.jsx [2m([22m[2m2 tests[22m[2m | [22m[31m2 failed[39m[2m)[22m[32m 47[2mms[22m[39m
+[31m     [31m×[31m renders loading state initially[39m[32m 30[2mms[22m[39m
+[31m     [31m×[31m renders portfolio data when loaded[39m[32m 15[2mms[22m[39m
+ [32m✓[39m src/pages/BlogPage.test.jsx [2m([22m[2m2 tests[22m[2m)[22m[32m 55[2mms[22m[39m
+ [32m✓[39m src/App.test.jsx [2m([22m[2m1 test[22m[2m)[22m[32m 40[2mms[22m[39m
+ [31m❯[39m src/pages/BlogPostPage.test.jsx [2m([22m[2m3 tests[22m[2m | [22m[31m2 failed[39m[2m)[22m[33m 1076[2mms[22m[39m
+[31m     [31m×[31m renders loading state initially[39m[32m 27[2mms[22m[39m
+     [32m✓[39m renders post content when fetched successfully[32m 42[2mms[22m[39m
+[31m     [31m×[31m renders error state when post is not found[39m[33m 1004[2mms[22m[39m
+
+[31m⎯⎯⎯⎯⎯⎯[39m[1m[41m Failed Tests 11 [49m[22m[31m⎯⎯⎯⎯⎯⎯⎯[39m
+
+[41m[1m FAIL [22m[49m src/api.test.js[2m > [22mapi functions[2m > [22mfetchNewsfeed handles errors
+[31m[1mAssertionError[22m: expected { results: [], count: +0 } to deeply equal [][39m
+
+[32m- Expected:[39m
+[]
+
+[31m+ Received:[39m
+{
+  "count": 0,
+  "results": [],
+}
+
+[36m [2m❯[22m src/api.test.js:[2m58:20[22m[39m
+    [90m 56|[39m     global[33m.[39mfetch[33m.[39m[34mmockRejectedValueOnce[39m([35mnew[39m [33mError[39m([32m'Network error'[39m))[33m;[39m
+    [90m 57|[39m     [35mconst[39m result [33m=[39m [35mawait[39m [34mfetchNewsfeed[39m()[33m;[39m
+    [90m 58|[39m     [34mexpect[39m(result)[33m.[39m[34mtoEqual[39m([])[33m;[39m
+    [90m   |[39m                    [31m^[39m
+    [90m 59|[39m   })[33m;[39m
+    [90m 60|[39m
+
+[31m[2m⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/11]⎯[22m[39m
+
+[41m[1m FAIL [22m[49m src/components/Footer.test.jsx[2m > [22mFooter[2m > [22mhandles current year logic
+[31m[1mTestingLibraryElementError[22m: Unable to find an element with the text: /2026 - 2027/i. This could be because the text is broken up by multiple elements. In this case, you can provide a function for your text matcher to make your matcher more flexible.
+
+Ignored nodes: comments, script, style
+[36m<body>[31m
+  [36m<div>[31m
+    [36m<footer[31m
+      [33mclass[31m=[32m"border-t border-white/[0.04] bg-brand-bg py-8"[31m
+    [36m>[31m
+      [36m<div[31m
+        [33mclass[31m=[32m"max-w-6xl mx-auto px-6 flex flex-col md:flex-row items-center justify-between gap-4 text-xs text-brand-textMuted text-center md:text-left"[31m
+      [36m>[31m
+        [36m<div>[31m
+          [0m© 2026 [0m
+          [36m<span[31m
+            [33mclass[31m=[32m"text-white font-semibold"[31m
+          [36m>[31m
+            [0mVAL3R11[0m
+          [36m</span>[31m
+          [0m. All rights reserved.[0m
+        [36m</div>[31m
+        [36m<div[31m
+          [33mclass[31m=[32m"flex flex-col sm:flex-row items-center gap-2 sm:gap-6"[31m
+        [36m>[31m
+          [36m<span>[31m
+            [0mDesigned & automated via AI collaboration[0m
+          [36m</span>[31m
+          [36m<span[31m
+            [33mclass[31m=[32m"px-2 py-1 rounded bg-white/5 font-mono text-[10px]"[31m
+          [36m>[31m
+            [0mv[0m
+            [0m2.1.0.6[0m
+          [36m</span>[31m
+        [36m</div>[31m
+      [36m</div>[31m
+    [36m</footer>[31m
+  [36m</div>[31m
+[36m</body>[31m[39m
+[90m [2m❯[22m Object.getElementError node_modules/@testing-library/dom/dist/config.js:[2m37:19[22m[39m
+[90m [2m❯[22m node_modules/@testing-library/dom/dist/query-helpers.js:[2m76:38[22m[39m
+[90m [2m❯[22m node_modules/@testing-library/dom/dist/query-helpers.js:[2m52:17[22m[39m
+[90m [2m❯[22m node_modules/@testing-library/dom/dist/query-helpers.js:[2m95:19[22m[39m
+[36m [2m❯[22m src/components/Footer.test.jsx:[2m17:19[22m[39m
+    [90m 15|[39m     vi[33m.[39m[34msetSystemTime[39m([35mnew[39m [33mDate[39m([32m'2027-01-01'[39m))[33m;[39m
+    [90m 16|[39m     [34mrender[39m([33m<[39m[33mFooter[39m [33m/[39m[33m>[39m)[33m;[39m
+    [90m 17|[39m     [34mexpect[39m(screen[33m.[39m[34mgetByText[39m([36m/2026 - 2027/i[39m))[33m.[39m[34mtoBeInTheDocument[39m()[33m;[39m
+    [90m   |[39m                   [31m^[39m
+    [90m 18|[39m     vi[33m.[39m[34museRealTimers[39m()[33m;[39m
+    [90m 19|[39m   })[33m;[39m
+
+[31m[2m⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/11]⎯[22m[39m
+
+[41m[1m FAIL [22m[49m src/components/Navbar.test.jsx[2m > [22mNavbar[2m > [22mrenders navbar links
+[31m[1mTestingLibraryElementError[22m: Unable to find an element with the text: VAL. This could be because the text is broken up by multiple elements. In this case, you can provide a function for your text matcher to make your matcher more flexible.
+
+Ignored nodes: comments, script, style
+[36m<body>[31m
+  [36m<div>[31m
+    [36m<header[31m
+      [33mclass[31m=[32m"sticky top-0 z-40 bg-brand-bg/80 backdrop-blur-md border-b border-white/[0.04]"[31m
+    [36m>[31m
+      [36m<div[31m
+        [33mclass[31m=[32m"max-w-6xl mx-auto px-6 h-20 flex items-center justify-between"[31m
+      [36m>[31m
+        [36m<a[31m
+          [33mclass[31m=[32m"flex items-center gap-2 group"[31m
+          [33mdata-discover[31m=[32m"true"[31m
+          [33mhref[31m=[32m"/"[31m
+        [36m>[31m
+          [36m<img[31m
+            [33malt[31m=[32m"VAL3R11 Logo"[31m
+            [33mclass[31m=[32m"w-8 h-8 rounded-lg object-cover transition-transform duration-300 group-hover:scale-105"[31m
+            [33msrc[31m=[32m"/logo.png"[31m
+          [36m/>[31m
+          [36m<span[31m
+            [33mclass[31m=[32m"text-xl font-extrabold tracking-wider text-white"[31m
+          [36m>[31m
+            [0mVAL[0m
+            [36m<span[31m
+              [33mclass[31m=[32m"text-brand-accent transition-all duration-300 group-hover:glow-text"[31m
+            [36m>[31m
+              [0m3[0m
+            [36m</span>[31m
+            [0mR11[0m
+          [36m</span>[31m
+          [36m<span[31m
+            [33mclass[31m=[32m"w-1.5 h-1.5 rounded-full bg-brand-accent animate-pulse"[31m
+          [36m/>[31m
+        [36m</a>[31m
+        [36m<nav[31m
+          [33mclass[31m=[32m"hidden md:flex items-center gap-8 text-sm font-medium text-brand-textMuted"[31m
+        [36m>[31m
+          [36m<a[31m
+            [33maria-current[31m=[32m"page"[31m
+            [33mclass[31m=[32m"transition-colors hover:text-white relative py-1 text-brand-accent"[31m
+            [33mdata-discover[31m=[32m"true"[31m
+            [33mhref[31m=[32m"/"[31m
+          [36m>[31m
+            [0mHome[0m
+            [36m<span[31m
+              [33mclass[31m=[32m"absolute bottom-0 left-0 w-full h-[2px] bg-brand-accent rounded-full"[31m
+            [36m/>[31m
+          [36m</a>[31m
+          [36m<a[31m
+            [33mclass[31m=[32m"transition-colors hover:text-white relative py-1 "[31m
+            [33mdata-discover[31m=[32m"true"[31m
+            [33mhref[31m=[32m"/portfolio"[31m
+          [36m>[31m
+            [0mPortfolio[0m
+          [36m</a>[31m
+          [36m<a[31m
+            [33mclass[31m=[32m"transition-colors hover:text-white relative py-1 "[31m
+            [33mdata-discover[31m=[32m"true"[31m
+            [33mhref[31m=[32m"/newsfeed"[31m
+          [36m>[31m
+            [0mNewsfeed[0m
+          [36m</a>[31m
+          [36m<a[31m
+            [33mclass[31m=[32m"transition-colors hover:text-white relative py-1 "[31m
+            [33mdata-discover[31m=[32m"true"[31m
+            [33mhref[31m=[32m"/blog"[31m
+          [36m>[31m
+            [0mBlog[0m
+          [36m</a>[31m
+        [36m</nav>[31m
+        [36m<div[31m
+          [33mclass[31m=[32m"flex items-center gap-4"[31m
+        [36m>[31m
+          [36m<button[31m
+            [33mclass[31m=[32m"hidden md:block relative group px-5 py-2.5 rounded-full bg-brand-accent text-black font-semibold text-sm transition-all duration-300 hover:scale-105 hover:shadow-[0_0_20px_rgba(46,229,107,0.4)]"[31m
+          [36m>[31m
+            [0mSubscribe[0m
+          [36m</button>[31m
+          [36m<button[31m
+            [33mclass[31m=[32m"md:hidden text-white p-2 focus:outline-none"[31m
+          [36m>[31m
+            [36m<svg[31m
+              [33maria-hidden[31m=[32m"true"[31m
+              [33mclass[31m=[32m"lucide lucide-menu w-6 h-6"[31m
+              [33mfill[31m=[32m"none"[31m
+              [33mheight[31m=[32m"24"[31m
+              [33mstroke[31m=[32m"currentColor"[31m
+              [33mstroke-linecap[31m=[32m"round"[31m
+              [33mstroke-linejoin[31m=[32m"round"[31m
+              [33mstroke-width[31m=[32m"2"[31m
+              [33mviewBox[31m=[32m"0 0 24 24"[31m
+              [33mwidth[31m=[32m"24"[31m
+              [33mxmlns[31m=[32m"http://www.w3.org/2000/svg"[31m
+            [36m>[31m
+              [36m<path[31m
+                [33md[31m=[32m"M4 5h16"[31m
+              [36m/>[31m
+              [36m<path[31m
+                [33md[31m=[32m"M4 12h16"[31m
+              [36m/>[31m
+              [36m<path[31m
+                [33md[31m=[32m"M4 19h16"[31m
+              [36m/>[31m
+            [36m</svg>[31m
+          [36m</button>[31m
+        [36m</div>[31m
+      [36m</div>[31m
+    [36m</header>[31m
+  [36m</div>[31m
+[36m</body>[31m[39m
+[90m [2m❯[22m Object.getElementError node_modules/@testing-library/dom/dist/config.js:[2m37:19[22m[39m
+[90m [2m❯[22m node_modules/@testing-library/dom/dist/query-helpers.js:[2m76:38[22m[39m
+[90m [2m❯[22m node_modules/@testing-library/dom/dist/query-helpers.js:[2m52:17[22m[39m
+[90m [2m❯[22m node_modules/@testing-library/dom/dist/query-helpers.js:[2m95:19[22m[39m
+[36m [2m❯[22m src/components/Navbar.test.jsx:[2m13:19[22m[39m
+    [90m 11|[39m       [33m<[39m[33m/[39m[33mMemoryRouter[39m[33m>[39m
+    [90m 12|[39m     )[33m;[39m
+    [90m 13|[39m     [34mexpect[39m(screen[33m.[39m[34mgetByText[39m([32m'VAL'[39m))[33m.[39m[34mtoBeInTheDocument[39m()[33m;[39m
+    [90m   |[39m                   [31m^[39m
+    [90m 14|[39m     [34mexpect[39m(screen[33m.[39m[34mgetByText[39m([32m'3R11'[39m))[33m.[39m[34mtoBeInTheDocument[39m()[33m;[39m
+    [90m 15|[39m     [34mexpect[39m(screen[33m.[39m[34mgetByText[39m([32m'Home'[39m))[33m.[39m[34mtoBeInTheDocument[39m()[33m;[39m
+
+[31m[2m⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[3/11]⎯[22m[39m
+
+[41m[1m FAIL [22m[49m src/components/SubscribeModal.test.jsx[2m > [22mSubscribeModal[2m > [22mdoes not render when closed
+[31m[1mError[22m: [2mexpect([22m[31melement[31m[2m).not.toBeInTheDocument()[22m
+
+[31mexpected document not to contain element, found <h3
+  class="text-2xl font-extrabold text-white"
+>
+  Join the Newsletter
+</h3> instead[31m[39m
+[36m [2m❯[22m src/components/SubscribeModal.test.jsx:[2m15:60[22m[39m
+    [90m 13|[39m   [34mit[39m([32m'does not render when closed'[39m[33m,[39m () [33m=>[39m {
+    [90m 14|[39m     [34mrender[39m([33m<[39m[33mSubscribeModal[39m [33misOpen[39m[33m=[39m[33m{[39m[35mfalse[39m[33m}[39m [33monClose[39m[33m=[39m[33m{[39m() [33m=>[39m {}[33m}[39m [33m/[39m[33m>[39m)[33m;[39m
+    [90m 15|[39m     expect(screen.queryByText(/Join the Newsletter/i)).not.toBeInTheDo…
+    [90m   |[39m                                                            [31m^[39m
+    [90m 16|[39m   })[33m;[39m
+    [90m 17|[39m
+
+[31m[2m⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[4/11]⎯[22m[39m
+
+[41m[1m FAIL [22m[49m src/pages/BlogPostPage.test.jsx[2m > [22mBlogPostPage[2m > [22mrenders loading state initially
+[31m[1mTestingLibraryElementError[22m: Unable to find an element with the text: Loading article.... This could be because the text is broken up by multiple elements. In this case, you can provide a function for your text matcher to make your matcher more flexible.
+
+Ignored nodes: comments, script, style
+[36m<body>[31m
+  [36m<div>[31m
+    [36m<div[31m
+      [33mclass[31m=[32m"space-y-12 animate-fade-in flex-grow flex items-center justify-center min-h-[50vh]"[31m
+    [36m>[31m
+      [36m<div[31m
+        [33mclass[31m=[32m"w-14 h-14 rounded-2xl border-4 border-brand-accent/20 border-t-brand-accent animate-spin"[31m
+      [36m/>[31m
+    [36m</div>[31m
+  [36m</div>[31m
+[36m</body>[31m[39m
+[90m [2m❯[22m Object.getElementError node_modules/@testing-library/dom/dist/config.js:[2m37:19[22m[39m
+[90m [2m❯[22m node_modules/@testing-library/dom/dist/query-helpers.js:[2m76:38[22m[39m
+[90m [2m❯[22m node_modules/@testing-library/dom/dist/query-helpers.js:[2m52:17[22m[39m
+[90m [2m❯[22m node_modules/@testing-library/dom/dist/query-helpers.js:[2m95:19[22m[39m
+[36m [2m❯[22m src/pages/BlogPostPage.test.jsx:[2m33:19[22m[39m
+    [90m 31|[39m     )[33m;[39m
+    [90m 32|[39m
+    [90m 33|[39m     [34mexpect[39m(screen[33m.[39m[34mgetByText[39m([32m'Loading article...'[39m))[33m.[39m[34mtoBeInTheDocument[39m()[33m;[39m
+    [90m   |[39m                   [31m^[39m
+    [90m 34|[39m   })[33m;[39m
+    [90m 35|[39m
+
+[31m[2m⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[5/11]⎯[22m[39m
+
+[41m[1m FAIL [22m[49m src/pages/BlogPostPage.test.jsx[2m > [22mBlogPostPage[2m > [22mrenders error state when post is not found
+[31m[1mTestingLibraryElementError[22m: Unable to find an element with the text: ← Back to Blog. This could be because the text is broken up by multiple elements. In this case, you can provide a function for your text matcher to make your matcher more flexible.
+
+Ignored nodes: comments, script, style
+[36m<body>[31m
+  [36m<div>[31m
+    [36m<div[31m
+      [33mclass[31m=[32m"space-y-6 animate-fade-in text-center pt-20"[31m
+    [36m>[31m
+      [36m<h2[31m
+        [33mclass[31m=[32m"text-3xl font-bold text-white"[31m
+      [36m>[31m
+        [0mBlog post not found.[0m
+      [36m</h2>[31m
+      [36m<a[31m
+        [33mclass[31m=[32m"inline-flex items-center gap-2 text-brand-accent hover:text-white transition-colors"[31m
+        [33mdata-discover[31m=[32m"true"[31m
+        [33mhref[31m=[32m"/blog"[31m
+      [36m>[31m
+        [36m<svg[31m
+          [33maria-hidden[31m=[32m"true"[31m
+          [33mclass[31m=[32m"lucide lucide-arrow-left w-4 h-4"[31m
+          [33mfill[31m=[32m"none"[31m
+          [33mheight[31m=[32m"24"[31m
+          [33mstroke[31m=[32m"currentColor"[31m
+          [33mstroke-linecap[31m=[32m"round"[31m
+          [33mstroke-linejoin[31m=[32m"round"[31m
+          [33mstroke-width[31m=[32m"2"[31m
+          [33mviewBox[31m=[32m"0 0 24 24"[31m
+          [33mwidth[31m=[32m"24"[31m
+          [33mxmlns[31m=[32m"http://www.w3.org/2000/svg"[31m
+        [36m>[31m
+          [36m<path[31m
+            [33md[31m=[32m"m12 19-7-7 7-7"[31m
+          [36m/>[31m
+          [36m<path[31m
+            [33md[31m=[32m"M19 12H5"[31m
+          [36m/>[31m
+        [36m</svg>[31m
+        [0m Back to Blog[0m
+      [36m</a>[31m
+    [36m</div>[31m
+  [36m</div>[31m
+[36m</body>[31m
+
+Ignored nodes: comments, script, style
+[36m<html>[31m
+  [36m<head />[31m
+  [36m<body>[31m
+    [36m<div>[31m
+      [36m<div[31m
+        [33mclass[31m=[32m"space-y-6 animate-fade-in text-center pt-20"[31m
+      [36m>[31m
+        [36m<h2[31m
+          [33mclass[31m=[32m"text-3xl font-bold text-white"[31m
+        [36m>[31m
+          [0mBlog post not found.[0m
+        [36m</h2>[31m
+        [36m<a[31m
+          [33mclass[31m=[32m"inline-flex items-center gap-2 text-brand-accent hover:text-white transition-colors"[31m
+          [33mdata-discover[31m=[32m"true"[31m
+          [33mhref[31m=[32m"/blog"[31m
+        [36m>[31m
+          [36m<svg[31m
+            [33maria-hidden[31m=[32m"true"[31m
+            [33mclass[31m=[32m"lucide lucide-arrow-left w-4 h-4"[31m
+            [33mfill[31m=[32m"none"[31m
+            [33mheight[31m=[32m"24"[31m
+            [33mstroke[31m=[32m"currentColor"[31m
+            [33mstroke-linecap[31m=[32m"round"[31m
+            [33mstroke-linejoin[31m=[32m"round"[31m
+            [33mstroke-width[31m=[32m"2"[31m
+            [33mviewBox[31m=[32m"0 0 24 24"[31m
+            [33mwidth[31m=[32m"24"[31m
+            [33mxmlns[31m=[32m"http://www.w3.org/2000/svg"[31m
+          [36m>[31m
+            [36m<path[31m
+              [33md[31m=[32m"m12 19-7-7 7-7"[31m
+            [36m/>[31m
+            [36m<path[31m
+              [33md[31m=[32m"M19 12H5"[31m
+            [36m/>[31m
+          [36m</svg>[31m
+          [0m Back to Blog[0m
+        [36m</a>[31m
+      [36m</div>[31m
+    [36m</div>[31m
+  [36m</body>[31m
+[36m</html>[31m[39m
+[90m [2m❯[22m Proxy.waitForWrapper node_modules/@testing-library/dom/dist/wait-for.js:[2m163:27[22m[39m
+[36m [2m❯[22m src/pages/BlogPostPage.test.jsx:[2m76:11[22m[39m
+    [90m 74|[39m     )[33m;[39m
+    [90m 75|[39m
+    [90m 76|[39m     [35mawait[39m [34mwaitFor[39m(() [33m=>[39m {
+    [90m   |[39m           [31m^[39m
+    [90m 77|[39m       expect(screen.getByText('Blog post not found.')).toBeInTheDocume…
+    [90m 78|[39m       [34mexpect[39m(screen[33m.[39m[34mgetByText[39m([32m'← Back to Blog'[39m))[33m.[39m[34mtoBeInTheDocument[39m()[33m;[39m
+
+[31m[2m⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[6/11]⎯[22m[39m
+
+[41m[1m FAIL [22m[49m src/pages/LandingPage.test.jsx[2m > [22mLandingPage[2m > [22mrenders landing page content
+[31m[1mTestingLibraryElementError[22m[39m: Unable to find an element with the text: /Virtual Autonomous Leader/i. This could be because the text is broken up by multiple elements. In this case, you can provide a function for your text matcher to make your matcher more flexible.
+
+Ignored nodes: comments, script, style
+[36m<body>[39m
+  [36m<div>[39m
+    [36m<div[39m
+      [33mclass[39m=[32m"space-y-12 animate-fade-in"[39m
+    [36m>[39m
+      [36m<div[39m
+        [33mclass[39m=[32m"text-center max-w-3xl mx-auto space-y-6 pt-10"[39m
+      [36m>[39m
+        [36m<div[39m
+          [33mclass[39m=[32m"inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-brand-accent/10 border border-brand-accent/20 text-brand-accent text-xs font-semibold uppercase tracking-wider"[39m
+        [36m>[39m
+          [36m<span[39m
+            [33mclass[39m=[32m"w-2 h-2 rounded-full bg-brand-accent animate-ping"[39m
+          [36m/>[39m
+          [0mInteractive Dev Hub[0m
+        [36m</div>[39m
+        [36m<h1[39m
+          [33mclass[39m=[32m"text-5xl md:text-7xl font-extrabold tracking-tight text-white leading-none"[39m
+        [36m>[39m
+          [0mHello, I'm [0m
+          [36m<span[39m
+            [33mclass[39m=[32m"text-transparent bg-clip-text bg-gradient-to-r from-brand-accent to-emerald-400 drop-shadow-[0_0_15px_rgba(46,229,107,0.15)]"[39m
+          [36m>[39m
+            [0mVAL3R11[0m
+          [36m</span>[39m
+        [36m</h1>[39m
+        [36m<p[39m
+          [33mclass[39m=[32m"text-brand-textMuted text-lg md:text-xl leading-relaxed"[39m
+        [36m>[39m
+          [0mA tech automation hub, software engineering blog, and personal playground crafted with high-level AI collaboration.[0m
+        [36m</p>[39m
+      [36m</div>[39m
+      [36m<div[39m
+        [33mclass[39m=[32m"flex items-center justify-center gap-4 py-4"[39m
+      [36m>[39m
+        [36m<span[39m
+          [33mclass[39m=[32m"text-sm transition-colors font-bold text-brand-accent"[39m
+        [36m>[39m
+          [0mHonest Mode[0m
+        [36m</span>[39m
+        [36m<button[39m
+          [33mclass[39m=[32m"relative w-14 h-7 rounded-full bg-white/10 hover:bg-white/20 transition-colors focus:outline-none border border-white/[0.05]"[39m
+        [36m>[39m
+          [36m<span[39m
+            [33mclass[39m=[32m"absolute left-1 top-1 w-5 h-5 rounded-full shadow-md transition-transform duration-300 bg-white"[39m
+          [36m/>[39m
+        [36m</button>[39m
+        [36m<span[39m
+          [33mclass[39m=[32m"text-sm transition-colors font-medium text-brand-textMuted"[39m
+        [36m>[39m
+          [0mCorporate Mode[0m
+        [36m</span>[39m
+      [36m</div>[39m
+      [36m<div[39m
+        [33mclass[39m=[32m"max-w-2xl mx-auto grid grid-cols-1 gap-4 relative"[39m
+      [36m>[39m
+        [36m<div[39m
+          [33mclass[39m=[32m"bg-brand-card/60 backdrop-blur border-glow rounded-2xl p-6 flex items-start gap-4 transition-all duration-300 group"[39m
+        [36m>[39m
+          [36m<div[39m
+            [33mclass[39m=[32m"w-12 h-12 rounded-xl bg-brand-accent/10 flex items-center justify-center font-bold text-brand-accent flex-shrink-0 text-lg"[39m
+          [36m>[39m
+            [0mV[0m
+          [36m</div>[39m
+          [36m<div[39m
+            [33mclass[39m=[32m"pt-1 transition-all duration-300"[39m
+          [36m>[39m
+            [36m<h4[39m
+              [33mclass[39m=[32m"text-white font-semibold text-lg mb-1"[39m
+            [36m>[39m
+              [0mVirtual[0m
+            [36m</h4>[39m
+            [36m<p[39m
+              [33mclass[39m=[32m"text-brand-textMuted text-sm"[39m
+            [36m>[39m
+              [0mJust a guy from Bucha[0m
+            [36m</p>[39m
+          [36m</div>[39m
+        [36m</div>[39m
+        [36m<div[39m
+          [33mclass[39m=[32m"bg-brand-card/60 backdrop-blur border-glow rounded-2xl p-6 flex items-start gap-4 transition-all duration-300 group"[39m
+        [36m>[39m
+          [36m<div[39m
+            [33mclass[39m=[32m"w-12 h-12 rounded-xl bg-brand-accent/10 flex items-center justify-center font-bold text-brand-accent flex-shrink-0 text-lg"[39m
+          [36m>[39m
+            [0mA[0m
+          [36m</div>[39m
+          [36m<div[39m
+            [33mclass[39m=[32m"pt-1 transition-all duration-300"[39m
+          [36m>[39m
+            [36m<h4[39m
+              [33mclass[39m=[32m"text-white font-semibold text-lg mb-1"[39m
+            [36m>[39m
+              [0mAssistant's[0m
+            [36m</h4>[39m
+            [36m<p[39m
+              [33mclass[39m=[32m"text-brand-textMuted text-sm"[39m
+            [36m>[39m
+              [0mtrying to automate his life[0m
+            [36m</p>[39m
+          [36m</div>[39m
+        [36m</div>[39m
+        [36m<div[39m
+          [33mclass[39m=[32m"bg-brand-card/60 backdrop-blur border-glow rounded-2xl p-6 flex items-start gap-4 transition-all duration-300 group"[39m
+        [36m>[39m
+          [36m<div[39m
+            [33mclass[39m=[32m"w-12 h-12 rounded-xl bg-brand-accent/10 flex items-center justify-center font-bold text-brand-accent flex-shrink-0 text-lg"[39m
+          [36m>[39m
+            [0mL[0m
+          [36m</div>[39m
+          [36m<div[39m
+            [33mclass[39m=[32m"pt-1 transition-all duration-300"[39m
+          [36m>[39m
+            [36m<h4[39m
+              [33mclass[39m=[32m"text-white font-semibold text-lg mb-1"[39m
+            [36m>[39m
+              [0mLocal[0m
+            [36m</h4>[39m
+            [36m<p[39m
+              [33mclass[39m=[32m"text-brand-textMuted text-sm"[39m
+            [36m>[39m
+              [0mbefore it automates him.[0m
+            [36m</p>[39m
+          [36m</div>[39m
+        [36m</div>[39m
+        [36m<div[39m
+          [33mclass[39m=[32m"bg-brand-card/60 backdrop-blur border-glow rounded-2xl p-6 flex items-start gap-4 transition-all duration-300"[39m
+        [36m>[39m
+          [36m<div[39m
+            [33mclass[39m=[32m"w-12 h-12 rounded-xl bg-brand-accent/10 flex items-center justify-center font-bold text-brand-accent flex-shrink-0 text-lg"[39m
+          [36m>[39m
+            [0m3[0m
+          [36m</div>[39m
+          [36m<div[39m
+            [33mclass[39m=[32m"pt-1 transition-all duration-300"[39m
+          [36m>[39m
+            [36m<h4[39m
+              [33mclass[39m=[32m"text-white font-semibold text-lg mb-1"[39m
+            [36m>[39m
+              [0m3mployee[0m
+            [36m</h4>[39m
+            [36m<p[39m
+              [33mclass[39m=[32m"text-brand-textMuted text-sm"[39m
+            [36m>[39m
+              [0mCorporate cog by day, mad scientist with Google Apps Script by night.[0m
+            [36m</p>[39m
+          [36m</div>[39m
+        [36m</div>[39m
+        [36m<div[39m
+          [33mclass[39m=[32m"bg-brand-card/60 backdrop-blur border-glow rounded-2xl p-6 flex items-start gap-4 transition-all duration-300"[39m
+        [36m>[39m
+          [36m<div[39m
+            [33mclass[39m=[32m"w-12 h-12 rounded-xl bg-brand-accent/10 flex items-center justify-center font-bold text-brand-accent flex-shrink-0 text-lg"[39m
+          [36m>[39m
+            [0mR[0m
+          [36m</div>[39m
+          [36m<div[39m
+            [33mclass[39m=[32m"pt-1 transition-all duration-300"[39m
+          [36m>[39m
+            [36m<h4[39m
+              [33mclass[39m=[32m"text-white font-semibold text-lg mb-1"[39m
+            [36m>[39m
+              [0mResponsible for[0m
+            [36m</h4>[39m
+            [36m<p[39m
+              [33mclass[39m=[32m"text-brand-textMuted text-sm"[39m
+            [36m>[39m
+              [0mTaking the blame when the sprint fails or the API key expires.[0m
+            [36m</p>[39m
+          [36m</div>[39m
+        [36m</div>[39m
+        [36m<div[39m
+          [33mclass[39m=[32m"bg-brand-card/60 backdrop-blur border-glow rounded-2xl p-6 flex items-start gap-4 transition-all duration-300"[39m
+        [36m>[39m
+          [36m<div[39m
+            [33mclass[39m=[32m"w-12 h-12 rounded-xl bg-brand-accent/10 flex items-center justify-center font-bold text-brand-accent flex-shrink-0 text-lg"[39m
+          [36m>[39m
+            [0m11[0m
+          [36m</div>[39m
+          [36m<div[39m
+            [33mclass[39m=[32m"pt-1 transition-all duration-300"[39m
+          [36m>[39m
+            [36m<h4[39m
+              [33mclass[39m=[32m"text-white font-semibold text-lg mb-1"[39m
+            [36m>[39m
+              [0m1nventing 1mpediments[0m
+            [36m</h4>[39m
+            [36m<p[39m
+              [33mclass[39m=[32m"text-brand-textMuted text-sm"[39m
+            [36m>[39m
+              [0mBecause if the process is too smooth, are we even doing Agile right?[0m
+            [36m</p>[39m
+          [36m</div>[39m
+        [36m</div>[39m
+      [36m</div>[39m
+      [36m<div[39m
+        [33mclass[39m=[32m"text-center pt-6 pb-12"[39m
+      [36m>[39m
+        [36m<button[39m
+          [33mclass[39m=[32m"px-8 py-4 rounded-full bg-gradient-to-r from-brand-accent to-emerald-500 text-black font-bold tracking-wide transition-all duration-300 hover:scale-105 hover:shadow-[0_0_30px_rgba(46,229,107,0.3)]"[39m
+        [36m>[39m
+          [0mSubscribe to Newsletter[0m
+        [36m</button>[39m
+      [36m</div>[39m
+    [36m</div>[39m
+  [36m</div>[39m
+[36m</body>[39m
+[90m [2m❯[22m Object.getElementError node_modules/@testing-library/dom/dist/config.js:[2m37:19[22m[39m
+[90m [2m❯[22m node_modules/@testing-library/dom/dist/query-helpers.js:[2m76:38[22m[39m
+[90m [2m❯[22m node_modules/@testing-library/dom/dist/query-helpers.js:[2m52:17[22m[39m
+[90m [2m❯[22m node_modules/@testing-library/dom/dist/query-helpers.js:[2m95:19[22m[39m
+[36m [2m❯[22m src/pages/LandingPage.test.jsx:[2m15:19[22m[39m
+    [90m 13|[39m     [34mexpect[39m(screen[33m.[39m[34mgetByText[39m([36m/Hello, I'm/i[39m))[33m.[39m[34mtoBeInTheDocument[39m()[33m;[39m
+    [90m 14|[39m     [34mexpect[39m(screen[33m.[39m[34mgetByText[39m([32m'VAL3R11'[39m))[33m.[39m[34mtoBeInTheDocument[39m()[33m;[39m
+    [90m 15|[39m     expect(screen.getByText(/Virtual Autonomous Leader/i)).toBeInTheDo…
+    [90m   |[39m                   [31m^[39m
+    [90m 16|[39m   })[33m;[39m
+    [90m 17|[39m
+
+[31m[2m⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[7/11]⎯[22m[39m
+
+[41m[1m FAIL [22m[49m src/pages/NewsfeedPage.test.jsx[2m > [22mNewsfeedPage[2m > [22mrenders loading state initially
+[31m[1mTestingLibraryElementError[22m: Unable to find an element with the text: /Loading.../i. This could be because the text is broken up by multiple elements. In this case, you can provide a function for your text matcher to make your matcher more flexible.
+
+Ignored nodes: comments, script, style
+[36m<body>[31m
+  [36m<div>[31m
+    [36m<div[31m
+      [33mclass[31m=[32m"space-y-12 animate-fade-in max-w-4xl mx-auto w-full"[31m
+    [36m>[31m
+      [36m<header[31m
+        [33mclass[31m=[32m"text-center space-y-4 pt-10"[31m
+      [36m>[31m
+        [36m<h1[31m
+          [33mclass[31m=[32m"text-5xl font-extrabold tracking-tight text-white flex items-center justify-center gap-4"[31m
+        [36m>[31m
+          [36m<svg[31m
+            [33maria-hidden[31m=[32m"true"[31m
+            [33mclass[31m=[32m"lucide lucide-rss w-10 h-10 text-brand-accent"[31m
+            [33mfill[31m=[32m"none"[31m
+            [33mheight[31m=[32m"24"[31m
+            [33mstroke[31m=[32m"currentColor"[31m
+            [33mstroke-linecap[31m=[32m"round"[31m
+            [33mstroke-linejoin[31m=[32m"round"[31m
+            [33mstroke-width[31m=[32m"2"[31m
+            [33mviewBox[31m=[32m"0 0 24 24"[31m
+            [33mwidth[31m=[32m"24"[31m
+            [33mxmlns[31m=[32m"http://www.w3.org/2000/svg"[31m
+          [36m>[31m
+            [36m<path[31m
+              [33md[31m=[32m"M4 11a9 9 0 0 1 9 9"[31m
+            [36m/>[31m
+            [36m<path[31m
+              [33md[31m=[32m"M4 4a16 16 0 0 1 16 16"[31m
+            [36m/>[31m
+            [36m<circle[31m
+              [33mcx[31m=[32m"5"[31m
+              [33mcy[31m=[32m"19"[31m
+              [33mr[31m=[32m"1"[31m
+            [36m/>[31m
+          [36m</svg>[31m
+          [0m AI Newsfeed[0m
+        [36m</h1>[31m
+        [36m<p[31m
+          [33mclass[31m=[32m"text-brand-textMuted text-lg"[31m
+        [36m>[31m
+          [0mLatest updates and curations from the AI world.[0m
+        [36m</p>[31m
+      [36m</header>[31m
+      [36m<div[31m
+        [33mclass[31m=[32m"flex justify-center mt-12"[31m
+      [36m>[31m
+        [36m<div[31m
+          [33mclass[31m=[32m"w-12 h-12 rounded-2xl border-4 border-brand-accent/20 border-t-brand-accent animate-spin"[31m
+        [36m/>[31m
+      [36m</div>[31m
+    [36m</div>[31m
+  [36m</div>[31m
+[36m</body>[31m[39m
+[90m [2m❯[22m Object.getElementError node_modules/@testing-library/dom/dist/config.js:[2m37:19[22m[39m
+[90m [2m❯[22m node_modules/@testing-library/dom/dist/query-helpers.js:[2m76:38[22m[39m
+[90m [2m❯[22m node_modules/@testing-library/dom/dist/query-helpers.js:[2m52:17[22m[39m
+[90m [2m❯[22m node_modules/@testing-library/dom/dist/query-helpers.js:[2m95:19[22m[39m
+[36m [2m❯[22m src/pages/NewsfeedPage.test.jsx:[2m17:19[22m[39m
+    [90m 15|[39m       [33m<[39m[33m/[39m[33mHelmetProvider[39m[33m>[39m
+    [90m 16|[39m     )[33m;[39m
+    [90m 17|[39m     [34mexpect[39m(screen[33m.[39m[34mgetByText[39m([36m/Loading.../i[39m))[33m.[39m[34mtoBeInTheDocument[39m()[33m;[39m
+    [90m   |[39m                   [31m^[39m
+    [90m 18|[39m   })[33m;[39m
+    [90m 19|[39m
+
+[31m[2m⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[8/11]⎯[22m[39m
+
+[41m[1m FAIL [22m[49m src/pages/NewsfeedPage.test.jsx[2m > [22mNewsfeedPage[2m > [22mrenders newsfeed items when loaded
+[31m[1mTestingLibraryElementError[22m: Unable to find an element with the text: AI News. This could be because the text is broken up by multiple elements. In this case, you can provide a function for your text matcher to make your matcher more flexible.
+
+Ignored nodes: comments, script, style
+[36m<body>[31m
+  [36m<div>[31m
+    [36m<div[31m
+      [33mclass[31m=[32m"space-y-12 animate-fade-in max-w-4xl mx-auto w-full"[31m
+    [36m>[31m
+      [36m<header[31m
+        [33mclass[31m=[32m"text-center space-y-4 pt-10"[31m
+      [36m>[31m
+        [36m<h1[31m
+          [33mclass[31m=[32m"text-5xl font-extrabold tracking-tight text-white flex items-center justify-center gap-4"[31m
+        [36m>[31m
+          [36m<svg[31m
+            [33maria-hidden[31m=[32m"true"[31m
+            [33mclass[31m=[32m"lucide lucide-rss w-10 h-10 text-brand-accent"[31m
+            [33mfill[31m=[32m"none"[31m
+            [33mheight[31m=[32m"24"[31m
+            [33mstroke[31m=[32m"currentColor"[31m
+            [33mstroke-linecap[31m=[32m"round"[31m
+            [33mstroke-linejoin[31m=[32m"round"[31m
+            [33mstroke-width[31m=[32m"2"[31m
+            [33mviewBox[31m=[32m"0 0 24 24"[31m
+            [33mwidth[31m=[32m"24"[31m
+            [33mxmlns[31m=[32m"http://www.w3.org/2000/svg"[31m
+          [36m>[31m
+            [36m<path[31m
+              [33md[31m=[32m"M4 11a9 9 0 0 1 9 9"[31m
+            [36m/>[31m
+            [36m<path[31m
+              [33md[31m=[32m"M4 4a16 16 0 0 1 16 16"[31m
+            [36m/>[31m
+            [36m<circle[31m
+              [33mcx[31m=[32m"5"[31m
+              [33mcy[31m=[32m"19"[31m
+              [33mr[31m=[32m"1"[31m
+            [36m/>[31m
+          [36m</svg>[31m
+          [0m AI Newsfeed[0m
+        [36m</h1>[31m
+        [36m<p[31m
+          [33mclass[31m=[32m"text-brand-textMuted text-lg"[31m
+        [36m>[31m
+          [0mLatest updates and curations from the AI world.[0m
+        [36m</p>[31m
+      [36m</header>[31m
+      [36m<div[31m
+        [33mclass[31m=[32m"space-y-6 pt-6"[31m
+      [36m>[31m
+        [36m<div[31m
+          [33mclass[31m=[32m"text-center py-20 bg-brand-card/60 backdrop-blur rounded-3xl border border-white/[0.04]"[31m
+        [36m>[31m
+          [36m<svg[31m
+            [33maria-hidden[31m=[32m"true"[31m
+            [33mclass[31m=[32m"lucide lucide-rss w-12 h-12 text-brand-textMuted mx-auto mb-4"[31m
+            [33mfill[31m=[32m"none"[31m
+            [33mheight[31m=[32m"24"[31m
+            [33mstroke[31m=[32m"currentColor"[31m
+            [33mstroke-linecap[31m=[32m"round"[31m
+            [33mstroke-linejoin[31m=[32m"round"[31m
+            [33mstroke-width[31m=[32m"2"[31m
+            [33mviewBox[31m=[32m"0 0 24 24"[31m
+            [33mwidth[31m=[32m"24"[31m
+            [33mxmlns[31m=[32m"http://www.w3.org/2000/svg"[31m
+          [36m>[31m
+            [36m<path[31m
+              [33md[31m=[32m"M4 11a9 9 0 0 1 9 9"[31m
+            [36m/>[31m
+            [36m<path[31m
+              [33md[31m=[32m"M4 4a16 16 0 0 1 16 16"[31m
+            [36m/>[31m
+            [36m<circle[31m
+              [33mcx[31m=[32m"5"[31m
+              [33mcy[31m=[32m"19"[31m
+              [33mr[31m=[32m"1"[31m
+            [36m/>[31m
+          [36m</svg>[31m
+          [36m<h3[31m
+            [33mclass[31m=[32m"text-xl font-bold text-white mb-2"[31m
+          [36m>[31m
+            [0mNo news found[0m
+          [36m</h3>[31m
+          [36m<p[31m
+            [33mclass[31m=[32m"text-brand-textMuted"[31m
+          [36m>[31m
+            [0mCheck back later for the latest AI updates.[0m
+          [36m</p>[31m
+        [36m</div>[31m
+      [36m</div>[31m
+    [36m</div>[31m
+  [36m</div>[31m
+[36m</body>[31m[39m
+[90m [2m❯[22m Object.getElementError node_modules/@testing-library/dom/dist/config.js:[2m37:19[22m[39m
+[90m [2m❯[22m node_modules/@testing-library/dom/dist/query-helpers.js:[2m76:38[22m[39m
+[90m [2m❯[22m node_modules/@testing-library/dom/dist/query-helpers.js:[2m52:17[22m[39m
+[90m [2m❯[22m node_modules/@testing-library/dom/dist/query-helpers.js:[2m95:19[22m[39m
+[36m [2m❯[22m src/pages/NewsfeedPage.test.jsx:[2m35:19[22m[39m
+    [90m 33|[39m     })[33m;[39m
+    [90m 34|[39m
+    [90m 35|[39m     [34mexpect[39m(screen[33m.[39m[34mgetByText[39m([32m'AI News'[39m))[33m.[39m[34mtoBeInTheDocument[39m()[33m;[39m
+    [90m   |[39m                   [31m^[39m
+    [90m 36|[39m     [34mexpect[39m(screen[33m.[39m[34mgetByText[39m([32m'Twitter'[39m))[33m.[39m[34mtoBeInTheDocument[39m()[33m;[39m
+    [90m 37|[39m   })[33m;[39m
+
+[31m[2m⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[9/11]⎯[22m[39m
+
+[41m[1m FAIL [22m[49m src/pages/PortfolioPage.test.jsx[2m > [22mPortfolioPage[2m > [22mrenders loading state initially
+[31m[1mTestingLibraryElementError[22m: Unable to find an element with the text: /Loading.../i. This could be because the text is broken up by multiple elements. In this case, you can provide a function for your text matcher to make your matcher more flexible.
+
+Ignored nodes: comments, script, style
+[36m<body>[31m
+  [36m<div>[31m
+    [36m<div[31m
+      [33mclass[31m=[32m"space-y-16 animate-fade-in max-w-6xl mx-auto w-full"[31m
+    [36m>[31m
+      [36m<header[31m
+        [33mclass[31m=[32m"text-center max-w-3xl mx-auto space-y-4 pt-10"[31m
+      [36m>[31m
+        [36m<h1[31m
+          [33mclass[31m=[32m"text-5xl font-extrabold tracking-tight text-white"[31m
+        [36m>[31m
+          [0mPortfolio[0m
+        [36m</h1>[31m
+        [36m<p[31m
+          [33mclass[31m=[32m"text-brand-textMuted text-lg"[31m
+        [36m>[31m
+          [0mProjects, Experience, and Skills[0m
+        [36m</p>[31m
+      [36m</header>[31m
+      [36m<div[31m
+        [33mclass[31m=[32m"flex justify-center mt-12"[31m
+      [36m>[31m
+        [36m<div[31m
+          [33mclass[31m=[32m"w-12 h-12 rounded-2xl border-4 border-brand-accent/20 border-t-brand-accent animate-spin"[31m
+        [36m/>[31m
+      [36m</div>[31m
+    [36m</div>[31m
+  [36m</div>[31m
+[36m</body>[31m[39m
+[90m [2m❯[22m Object.getElementError node_modules/@testing-library/dom/dist/config.js:[2m37:19[22m[39m
+[90m [2m❯[22m node_modules/@testing-library/dom/dist/query-helpers.js:[2m76:38[22m[39m
+[90m [2m❯[22m node_modules/@testing-library/dom/dist/query-helpers.js:[2m52:17[22m[39m
+[90m [2m❯[22m node_modules/@testing-library/dom/dist/query-helpers.js:[2m95:19[22m[39m
+[36m [2m❯[22m src/pages/PortfolioPage.test.jsx:[2m17:19[22m[39m
+    [90m 15|[39m       [33m<[39m[33m/[39m[33mHelmetProvider[39m[33m>[39m
+    [90m 16|[39m     )[33m;[39m
+    [90m 17|[39m     [34mexpect[39m(screen[33m.[39m[34mgetByText[39m([36m/Loading.../i[39m))[33m.[39m[34mtoBeInTheDocument[39m()[33m;[39m
+    [90m   |[39m                   [31m^[39m
+    [90m 18|[39m   })[33m;[39m
+    [90m 19|[39m
+
+[31m[2m⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[10/11]⎯[22m[39m
+
+[41m[1m FAIL [22m[49m src/pages/PortfolioPage.test.jsx[2m > [22mPortfolioPage[2m > [22mrenders portfolio data when loaded
+[31m[1mTestingLibraryElementError[22m[39m: Found multiple elements with the text: React
+
+Here are the matching elements:
+
+Ignored nodes: comments, script, style
+[36m<span[39m
+  [33mclass[39m=[32m"px-3 py-1 rounded-lg bg-brand-accent/10 text-brand-accent text-xs font-bold tracking-wide"[39m
+[36m>[39m
+  [0mReact[0m
+[36m</span>[39m
+
+Ignored nodes: comments, script, style
+[36m<span[39m
+  [33mclass[39m=[32m"px-4 py-2 rounded-xl bg-white/5 text-white font-medium hover:bg-brand-accent hover:text-black transition-colors cursor-default"[39m
+[36m>[39m
+  [0mReact[0m
+[36m</span>[39m
+
+(If this is intentional, then use the `*AllBy*` variant of the query (like `queryAllByText`, `getAllByText`, or `findAllByText`)).
+
+Ignored nodes: comments, script, style
+[36m<body>[39m
+  [36m<div>[39m
+    [36m<div[39m
+      [33mclass[39m=[32m"space-y-16 animate-fade-in max-w-6xl mx-auto w-full"[39m
+    [36m>[39m
+      [36m<header[39m
+        [33mclass[39m=[32m"text-center max-w-3xl mx-auto space-y-4 pt-10"[39m
+      [36m>[39m
+        [36m<h1[39m
+          [33mclass[39m=[32m"text-5xl font-extrabold tracking-tight text-white"[39m
+        [36m>[39m
+          [0mPortfolio[0m
+        [36m</h1>[39m
+        [36m<p[39m
+          [33mclass[39m=[32m"text-brand-textMuted text-lg"[39m
+        [36m>[39m
+          [0mProjects, Experience, and Skills[0m
+        [36m</p>[39m
+      [36m</header>[39m
+      [36m<div[39m
+        [33mclass[39m=[32m"space-y-24"[39m
+      [36m>[39m
+        [36m<section[39m
+          [33mclass[39m=[32m"space-y-8"[39m
+        [36m>[39m
+          [36m<div[39m
+            [33mclass[39m=[32m"flex items-center gap-3 border-b border-white/[0.04] pb-4"[39m
+          [36m>[39m
+            [36m<svg[39m
+              [33maria-hidden[39m=[32m"true"[39m
+              [33mclass[39m=[32m"lucide lucide-briefcase w-8 h-8 text-brand-accent"[39m
+              [33mfill[39m=[32m"none"[39m
+              [33mheight[39m=[32m"24"[39m
+              [33mstroke[39m=[32m"currentColor"[39m
+              [33mstroke-linecap[39m=[32m"round"[39m
+              [33mstroke-linejoin[39m=[32m"round"[39m
+              [33mstroke-width[39m=[32m"2"[39m
+              [33mviewBox[39m=[32m"0 0 24 24"[39m
+              [33mwidth[39m=[32m"24"[39m
+              [33mxmlns[39m=[32m"http://www.w3.org/2000/svg"[39m
+            [36m>[39m
+              [36m<path[39m
+                [33md[39m=[32m"M16 20V4a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"[39m
+              [36m/>[39m
+              [36m<rect[39m
+                [33mheight[39m=[32m"14"[39m
+                [33mrx[39m=[32m"2"[39m
+                [33mwidth[39m=[32m"20"[39m
+                [33mx[39m=[32m"2"[39m
+                [33my[39m=[32m"6"[39m
+              [36m/>[39m
+            [36m</svg>[39m
+            [36m<h2[39m
+              [33mclass[39m=[32m"text-3xl font-bold text-white"[39m
+            [36m>[39m
+              [0mExperience[0m
+            [36m</h2>[39m
+          [36m</div>[39m
+          [36m<div[39m
+            [33mclass[39m=[32m"grid grid-cols-1 md:grid-cols-2 gap-6"[39m
+          [36m>[39m
+            [36m<div[39m
+              [33mclass[39m=[32m"bg-brand-card/60 backdrop-blur border-glow rounded-3xl p-8 hover:-translate-y-2 transition-transform duration-300"[39m
+            [36m>[39m
+              [36m<h3[39m
+                [33mclass[39m=[32m"text-xl font-bold text-white mb-1"[39m
+              [36m>[39m
+                [0mDeveloper[0m
+              [36m</h3>[39m
+              [36m<p[39m
+                [33mclass[39m=[32m"text-brand-accent font-semibold mb-2"[39m
+              [36m>[39m
+                [0mGoogle[0m
+              [36m</p>[39m
+              [36m<p[39m
+                [33mclass[39m=[32m"text-sm font-medium text-brand-textMuted mb-6 bg-white/5 inline-block px-3 py-1 rounded-full"[39m
+              [36m>[39m
+                [0m2020-01-01[0m
+                [0m — [0m
+                [0mPresent[0m
+              [36m</p>[39m
+              [36m<p[39m
+                [33mclass[39m=[32m"text-brand-textMuted leading-relaxed"[39m
+              [36m>[39m
+                [0mDesc[0m
+              [36m</p>[39m
+            [36m</div>[39m
+          [36m</div>[39m
+        [36m</section>[39m
+        [36m<section[39m
+          [33mclass[39m=[32m"space-y-8"[39m
+        [36m>[39m
+          [36m<div[39m
+            [33mclass[39m=[32m"flex items-center gap-3 border-b border-white/[0.04] pb-4"[39m
+          [36m>[39m
+            [36m<svg[39m
+              [33maria-hidden[39m=[32m"true"[39m
+              [33mclass[39m=[32m"lucide lucide-code w-8 h-8 text-brand-accent"[39m
+              [33mfill[39m=[32m"none"[39m
+              [33mheight[39m=[32m"24"[39m
+              [33mstroke[39m=[32m"currentColor"[39m
+              [33mstroke-linecap[39m=[32m"round"[39m
+              [33mstroke-linejoin[39m=[32m"round"[39m
+              [33mstroke-width[39m=[32m"2"[39m
+              [33mviewBox[39m=[32m"0 0 24 24"[39m
+              [33mwidth[39m=[32m"24"[39m
+              [33mxmlns[39m=[32m"http://www.w3.org/2000/svg"[39m
+            [36m>[39m
+              [36m<path[39m
+                [33md[39m=[32m"m16 18 6-6-6-6"[39m
+              [36m/>[39m
+              [36m<path[39m
+                [33md[39m=[32m"m8 6-6 6 6 6"[39m
+              [36m/>[39m
+            [36m</svg>[39m
+            [36m<h2[39m
+              [33mclass[39m=[32m"text-3xl font-bold text-white"[39m
+            [36m>[39m
+              [0mProjects[0m
+            [36m</h2>[39m
+          [36m</div>[39m
+          [36m<div[39m
+            [33mclass[39m=[32m"grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"[39m
+          [36m>[39m
+            [36m<div[39m
+              [33mclass[39m=[32m"bg-brand-card/60 backdrop-blur border-glow rounded-3xl p-6 flex flex-col hover:-translate-y-2 transition-transform duration-300 group"[39m
+            [36m>[39m
+              [36m<h3[39m
+                [33mclass[39m=[32m"text-2xl font-bold text-white mb-3 group-hover:text-brand-accent transition-colors"[39m
+              [36m>[39m
+                [0mCool Project[0m
+              [36m</h3>[39m
+              [36m<p[39m
+                [33mclass[39m=[32m"text-brand-textMuted mb-6 flex-grow"[39m
+              [36m>[39m
+                [0mDesc[0m
+              [36m</p>[39m
+              [36m<div[39m
+                [33mclass[39m=[32m"flex flex-wrap gap-2 mt-auto pt-4 border-t border-white/[0.04]"[39m
+              [36m>[39m
+                [36m<span[39m
+                  [33mclass[39m=[32m"px-3 py-1 rounded-lg bg-brand-accent/10 text-brand-accent text-xs font-bold tracking-wide"[39m
+                [36m>[39m
+                  [0mReact[0m
+                [36m</span>[39m
+              [36m</div>[39m
+            [36m</div>[39m
+          [36m</div>[39m
+        [36m</section>[39m
+        [36m<section[39m
+          [33mclass[39m=[32m"space-y-8 pb-12"[39m
+        [36m>[39m
+          [36m<div[39m
+            [33mclass[39m=[32m"flex items-center gap-3 border-b border-white/[0.04] pb-4"[39m
+          [36m>[39m
+            [36m<svg[39m
+              [33maria-hidden[39m=[32m"true"[39m
+              [33mclass[39m=[32m"lucide lucide-terminal w-8 h-8 text-brand-accent"[39m
+              [33mfill[39m=[32m"none"[39m
+              [33mheight[39m=[32m"24"[39m
+              [33mstroke[39m=[32m"currentColor"[39m
+              [33mstroke-linecap[39m=[32m"round"[39m
+              [33mstroke-linejoin[39m=[32m"round"[39m
+              [33mstroke-width[39m=[32m"2"[39m
+              [33mviewBox[39m=[32m"0 0 24 24"[39m
+              [33mwidth[39m=[32m"24"[39m
+              [33mxmlns[39m=[32m"http://www.w3.org/2000/svg"[39m
+            [36m>[39m
+              [36m<path[39m
+                [33md[39m=[32m"M12 19h8"[39m
+              [36m/>[39m
+              [36m<path[39m
+                [33md[39m=[32m"m4 17 6-6-6-6"[39m
+              [36m/>[39m
+            [36m</svg>[39m
+            [36m<h2[39m
+              [33mclass[39m=[32m"text-3xl font-bold text-white"[39m
+            [36m>[39m
+              [0mSkills[0m
+            [36m</h2>[39m
+          [36m</div>[39m
+          [36m<div[39m
+            [33mclass[39m=[32m"bg-brand-card/60 backdrop-blur border-glow rounded-3xl p-8"[39m
+          [36m>[39m
+            [36m<div[39m
+              [33mclass[39m=[32m"flex flex-wrap gap-3"[39m
+            [36m>[39m
+              [36m<span[39m
+                [33mclass[39m=[32m"px-4 py-2 rounded-xl bg-white/5 text-white font-medium hover:bg-brand-accent hover:text-black transition-colors cursor-default"[39m
+              [36m>[39m
+                [0mReact[0m
+              [36m</span>[39m
+            [36m</div>[39m
+          [36m</div>[39m
+        [36m</section>[39m
+      [36m</div>[39m
+    [36m</div>[39m
+  [36m</div>[39m
+[36m</body>[39m
+[90m [2m❯[22m Object.getElementError node_modules/@testing-library/dom/dist/config.js:[2m37:19[22m[39m
+[90m [2m❯[22m getElementError node_modules/@testing-library/dom/dist/query-helpers.js:[2m20:35[22m[39m
+[90m [2m❯[22m getMultipleElementsFoundError node_modules/@testing-library/dom/dist/query-helpers.js:[2m23:10[22m[39m
+[90m [2m❯[22m node_modules/@testing-library/dom/dist/query-helpers.js:[2m55:13[22m[39m
+[90m [2m❯[22m node_modules/@testing-library/dom/dist/query-helpers.js:[2m95:19[22m[39m
+[36m [2m❯[22m src/pages/PortfolioPage.test.jsx:[2m39:19[22m[39m
+    [90m 37|[39m     [34mexpect[39m(screen[33m.[39m[34mgetByText[39m([32m'Cool Project'[39m))[33m.[39m[34mtoBeInTheDocument[39m()[33m;[39m
+    [90m 38|[39m     [34mexpect[39m(screen[33m.[39m[34mgetByText[39m([32m'Developer'[39m))[33m.[39m[34mtoBeInTheDocument[39m()[33m;[39m
+    [90m 39|[39m     [34mexpect[39m(screen[33m.[39m[34mgetByText[39m([32m'React'[39m))[33m.[39m[34mtoBeInTheDocument[39m()[33m;[39m
+    [90m   |[39m                   [31m^[39m
+    [90m 40|[39m   })[33m;[39m
+    [90m 41|[39m })[33m;[39m
+
+[31m[2m⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[11/11]⎯[22m[39m
+
+
+[2m Test Files [22m [1m[31m8 failed[39m[22m[2m | [22m[1m[32m2 passed[39m[22m[90m (10)[39m
+[2m      Tests [22m [1m[31m11 failed[39m[22m[2m | [22m[1m[32m16 passed[39m[22m[90m (27)[39m
+[2m   Start at [22m 18:47:21
+[2m   Duration [22m 2.59s[2m (transform 1.08s, setup 1.07s, import 2.62s, tests 1.47s, environment 8.57s)[22m
+

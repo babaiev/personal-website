@@ -157,7 +157,7 @@ const BlogPostPage = () => {
   return (
     <div className="space-y-12 animate-fade-in max-w-4xl mx-auto w-full">
       <Helmet>
-        <title>VAL3R11 | {post.title}</title>
+        <title>ValAndAI | {post.title}</title>
         <meta name="description" content={post.content.substring(0, 150)} />
       </Helmet>
       

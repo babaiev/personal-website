@@ -28,8 +28,8 @@ const LandingPage = ({ onSubscribeClick }) => {
   return (
     <div className="space-y-12 animate-fade-in">
       <Helmet>
-        <title>VAL3R11 | Home</title>
-        <meta name="description" content="Virtual Autonomous Leader. 3rd generation. Remote only. One-to-One with AI." />
+        <title>ValAndAI | Home</title>
+        <meta name="description" content="ValAndAI. 3rd generation. Remote only. One-to-One with AI." />
       </Helmet>
 
       <div className="text-center max-w-3xl mx-auto space-y-6 pt-10">
@@ -38,7 +38,7 @@ const LandingPage = ({ onSubscribeClick }) => {
           Interactive Dev Hub
         </div>
         <h1 className="text-5xl md:text-7xl font-extrabold tracking-tight text-white leading-none">
-          Hello, I'm <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-accent to-emerald-400 drop-shadow-[0_0_15px_rgba(46,229,107,0.15)]">VAL3R11</span>
+          Hello, I'm <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-accent to-emerald-400 drop-shadow-[0_0_15px_rgba(46,229,107,0.15)]">ValAndAI</span>
         </h1>
         <p className="text-brand-textMuted text-lg md:text-xl leading-relaxed">
           A tech automation hub, software engineering blog, and personal playground crafted with high-level AI collaboration.

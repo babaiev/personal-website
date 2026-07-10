@@ -19,8 +19,8 @@ const PortfolioPage = () => {
   return (
     <div className="space-y-16 animate-fade-in max-w-6xl mx-auto w-full">
       <Helmet>
-        <title>VAL3R11 | Portfolio</title>
-        <meta name="description" content="Explore the projects, experience, and skills of VAL3R11." />
+        <title>ValAndAI | Portfolio</title>
+        <meta name="description" content="Explore the projects, experience, and skills of ValAndAI." />
       </Helmet>
       
       <header className="text-center max-w-3xl mx-auto space-y-4 pt-10">

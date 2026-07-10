@@ -20,8 +20,8 @@ const BlogPage = () => {
   return (
     <div className="space-y-12 animate-fade-in">
       <Helmet>
-        <title>VAL3R11 | Blog</title>
-        <meta name="description" content="Thoughts, tutorials, and articles on software engineering by VAL3R11." />
+        <title>ValAndAI | Blog</title>
+        <meta name="description" content="Thoughts, tutorials, and articles on software engineering by ValAndAI." />
       </Helmet>
       
       <header className="text-center max-w-3xl mx-auto space-y-4 pt-10">

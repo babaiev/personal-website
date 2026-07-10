@@ -31,8 +31,8 @@ const NewsfeedPage = () => {
   return (
     <div className="space-y-12 animate-fade-in max-w-4xl mx-auto w-full">
       <Helmet>
-        <title>VAL3R11 | AI Newsfeed</title>
-        <meta name="description" content="Latest updates and curations from the AI world by VAL3R11." />
+        <title>ValAndAI | AI Newsfeed</title>
+        <meta name="description" content="Latest updates and curations from the AI world by ValAndAI." />
       </Helmet>
       
       <header className="text-center space-y-4 pt-10">

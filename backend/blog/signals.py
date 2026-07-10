@@ -58,7 +58,7 @@ def send_batch_emails_thread(post_id):
             })
             
         payload = {
-            "sender": {"name": "VAL3R11", "email": "info@valandai.com"},
+            "sender": {"name": "ValAndAI", "email": "info@valandai.com"},
             "subject": f"New Post: {post.title}",
             "htmlContent": html_content,
             "messageVersions": message_versions

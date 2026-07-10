@@ -5,7 +5,7 @@ MAILERSEND_API_KEY = "mlsn.05a31e14a7267a684a685b639938a0afb5463069f360ab35f03b9
 MAILERSEND_URL = 'https://api.mailersend.com/v1/email'
 
 payload = {
-    "from": {"name": "VAL3R11", "email": "info@valandai.com"},
+    "from": {"name": "ValAndAI", "email": "info@valandai.com"},
     "to": [
         {"email": "valerii.babaiev@gmail.com"}
     ],

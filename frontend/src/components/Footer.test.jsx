@@ -6,7 +6,7 @@ describe('Footer', () => {
   it('renders footer content and version', () => {
     render(<Footer />);
     expect(screen.getByText(/All rights reserved/i)).toBeInTheDocument();
-    expect(screen.getByText(/VAL3R11/i)).toBeInTheDocument();
+    expect(screen.getByText(/ValAndAI/i)).toBeInTheDocument();
   });
 
   it('handles current year logic', () => {
@@ -14,7 +14,7 @@ describe('Footer', () => {
     vi.useFakeTimers();
     vi.setSystemTime(new Date('2027-01-01'));
     render(<Footer />);
-    expect(screen.getByText(/val3r11/i)).toBeInTheDocument();
+    expect(screen.getByText(/ValAndAI/i)).toBeInTheDocument();
     vi.useRealTimers();
   });
 });

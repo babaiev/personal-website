@@ -11,8 +11,8 @@ describe('LandingPage', () => {
       </HelmetProvider>
     );
     expect(screen.getByText(/Hello, I'm/i)).toBeInTheDocument();
-    expect(screen.getByText('VAL3R11')).toBeInTheDocument();
-    expect(screen.getByText(/VAL3R11/i)).toBeInTheDocument();
+    expect(screen.getByText('ValAndAI')).toBeInTheDocument();
+    expect(screen.getByText(/ValAndAI/i)).toBeInTheDocument();
   });
 
   it('calls onSubscribeClick when subscribe button is clicked', () => {
