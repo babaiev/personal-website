@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
+import DOMPurify from 'dompurify';
 import { fetchBlogPost, incrementPostView, likePost, unlikePost, dislikePost, undislikePost, fetchComments, postComment } from '../api';
 import { Eye, ThumbsUp, ThumbsDown, MessageSquare, ArrowLeft, Send, CheckCircle2, AlertCircle } from 'lucide-react';
 
@@ -185,9 +186,10 @@ const BlogPostPage = () => {
           </div>
         )}
         
-        <div className="prose prose-invert prose-lg max-w-none text-brand-textMuted prose-headings:text-white prose-a:text-brand-accent whitespace-pre-wrap leading-relaxed">
-          {post.content}
-        </div>
+        <div 
+          className="prose prose-invert prose-lg max-w-none text-brand-textMuted prose-headings:text-white prose-a:text-brand-accent whitespace-pre-wrap leading-relaxed ck-content"
+          dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(post.content) }}
+        />
 
         <div className="mt-16 pt-8 border-t border-white/[0.04] flex flex-wrap gap-4">
           <button 

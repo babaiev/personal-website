@@ -1,9 +1,10 @@
 from django.db import models
+from ckeditor_uploader.fields import RichTextUploadingField
 
 class Post(models.Model):
     title = models.CharField(max_length=200)
     slug = models.SlugField(max_length=200, unique=True)
-    content = models.TextField(help_text="Markdown content for the post")
+    content = RichTextUploadingField(help_text="Rich text content for the post")
     cover_image = models.FileField(upload_to='blog_covers/', blank=True, null=True, help_text="Upload cover image")
     is_published = models.BooleanField(default=False)
     likes = models.PositiveIntegerField(default=0)

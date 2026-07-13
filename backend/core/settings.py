@@ -48,6 +48,8 @@ INSTALLED_APPS = [
     'blog',
     'newsfeed',
     'subscribers',
+    'ckeditor',
+    'ckeditor_uploader',
 ]
 
 MIDDLEWARE = [
@@ -162,3 +164,23 @@ CORS_ALLOW_ALL_ORIGINS = True # For development only
 # Proxy and CSRF settings for Cloud Run
 SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
 CSRF_TRUSTED_ORIGINS = ['https://valandaicom-backend-211504890015.us-central1.run.app']
+
+# CKEditor Settings
+CKEDITOR_UPLOAD_PATH = "uploads/"
+CKEDITOR_IMAGE_BACKEND = "pillow"
+CKEDITOR_CONFIGS = {
+    'default': {
+        'toolbar': 'Custom',
+        'toolbar_Custom': [
+            ['Font', 'FontSize', 'Format'],
+            ['Bold', 'Italic', 'Underline', 'Strike', 'Subscript', 'Superscript'],
+            ['TextColor', 'BGColor'],
+            ['NumberedList', 'BulletedList', '-', 'Outdent', 'Indent', '-', 'JustifyLeft', 'JustifyCenter', 'JustifyRight', 'JustifyBlock'],
+            ['Link', 'Unlink'],
+            ['Image', 'Table', 'HorizontalRule', 'SpecialChar'],
+            ['RemoveFormat', 'Source', 'Maximize']
+        ],
+        'height': 400,
+        'width': '100%',
+    }
+}

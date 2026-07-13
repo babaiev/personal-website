@@ -26,4 +26,5 @@ urlpatterns = [
     path('api/blog/', include('blog.urls')),
     path('api/newsfeed/', include('newsfeed.urls')),
     path('api/subscribers/', include('subscribers.urls')),
+    path('ckeditor/', include('ckeditor_uploader.urls')),
 ]
