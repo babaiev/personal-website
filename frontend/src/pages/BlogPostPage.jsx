@@ -187,7 +187,7 @@ const BlogPostPage = () => {
         )}
         
         <div 
-          className="prose prose-invert prose-lg max-w-none text-brand-textMuted prose-headings:text-white prose-a:text-brand-accent whitespace-pre-wrap leading-relaxed ck-content"
+          className="prose prose-invert prose-lg max-w-none text-brand-textMuted prose-headings:text-white prose-a:text-brand-accent leading-relaxed ck-content"
           dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(post.content) }}
         />
 
