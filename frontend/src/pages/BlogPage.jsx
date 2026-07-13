@@ -56,7 +56,9 @@ const BlogPage = () => {
                   </div>
                 </div>
                 <h2 className="text-2xl font-bold text-white mb-3 group-hover:text-brand-accent transition-colors line-clamp-2">{post.title}</h2>
-                <p className="text-brand-textMuted text-sm line-clamp-3 mb-6 flex-grow">{post.content.substring(0, 150)}...</p>
+                <p className="text-brand-textMuted text-sm line-clamp-3 mb-6 flex-grow">
+                  {post.content.replace(/<[^>]+>/g, '').replace(/&nbsp;/g, ' ').substring(0, 150)}...
+                </p>
                 <div className="text-brand-accent font-bold text-sm uppercase tracking-wider mt-auto inline-flex items-center gap-2">
                   Read Article <span className="group-hover:translate-x-1 transition-transform">→</span>
                 </div>
