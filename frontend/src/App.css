@@ -2,8 +2,8 @@
 @plugin "@tailwindcss/typography";
 
 @theme {
-  --color-brand-bg: #080C0A;
-  --color-brand-card: #101612;
+  --color-brand-bg: #051A0F;
+  --color-brand-card: #0A2416;
   --color-brand-accent: #2EE56B;
   --color-brand-accentMuted: #1B5E35;
   --color-brand-textMuted: #9CA3AF;
