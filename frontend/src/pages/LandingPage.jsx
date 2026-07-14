@@ -195,14 +195,14 @@ const LandingPage = ({ onSubscribeClick }) => {
               className={`w-full rounded-2xl p-6 transition-all duration-500 flex flex-col md:flex-row gap-6 items-start md:items-center border ${
                 isAiView 
                 ? 'bg-black border-green-900/40 shadow-[0_4px_20px_rgba(0,0,0,0.5)]' 
-                : 'bg-[#121214] border-zinc-800/80'
+                : 'bg-brand-card border-brand-accent/10'
               }`}
             >
               {/* Card Icon/Letter Box */}
               <div className={`shrink-0 w-16 h-16 rounded-xl flex items-center justify-center text-xl font-bold transition-colors duration-500 ${
                 isAiView
                 ? 'bg-green-950/30 border border-green-500/30 text-green-500'
-                : 'bg-zinc-800/50 border border-zinc-700/50 text-emerald-400'
+                : 'bg-brand-bg/50 border border-brand-accent/20 text-brand-accent'
               }`}>
                 {isAiView ? card.aiLetter : card.humanLetter}
               </div>
