@@ -30,7 +30,7 @@ def send_batch_emails_thread(post_id):
             return
 
         site_url = os.environ.get('SITE_URL', 'https://valandai.com')
-        post_url = f"{site_url}/#/blog/{post.slug}/"
+        post_url = f"{site_url}/blog/{post.slug}/"
         
         # Cover image URL is likely already absolute if using Google Cloud Storage
         cover_url = post.cover_image.url if post.cover_image else None
