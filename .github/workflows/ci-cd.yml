@@ -48,13 +48,41 @@ jobs:
           npm run test -- --run --coverage
 
   deploy:
-    name: Deploy to Production
+    name: Deploy to Production VM
     needs: [test-backend, test-frontend]
     runs-on: ubuntu-latest
     if: github.ref == 'refs/heads/main' && github.event_name == 'push'
     steps:
       - uses: actions/checkout@v4
-      - name: Print Version
-        run: echo "Version is dynamically calculated during build"
-      - name: Placeholder Deploy Step
-        run: echo "Tests passed! Trigger deployment here."
+      
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          
+      - name: Build Frontend
+        run: |
+          cd frontend
+          npm install
+          npm run build
+          
+      - name: Copy Files to VM
+        uses: appleboy/scp-action@v0.1.7
+        with:
+          host: ${{ secrets.VM_IP }}
+          username: valeriibabaiev
+          key: ${{ secrets.VM_SSH_KEY }}
+          source: "backend/,frontend/dist/,docker-compose.yml,nginx.conf"
+          target: "/home/valeriibabaiev"
+          overwrite: true
+          
+      - name: Restart Docker Containers
+        uses: appleboy/ssh-action@v1.0.3
+        with:
+          host: ${{ secrets.VM_IP }}
+          username: valeriibabaiev
+          key: ${{ secrets.VM_SSH_KEY }}
+          script: |
+            cd /home/valeriibabaiev
+            sudo docker compose build web
+            sudo docker compose up -d
