@@ -46,6 +46,9 @@ const BlogPostPage = () => {
             window.localStorage.setItem(`viewed_${slug}`, 'true');
             setViewed(true);
           } else {
+            setViewed(true); // Always set to true if it was viewed before, so count shows +0 effectively if we don't want it to increment. Wait, if we set viewed to true, it adds 1 to view_count in UI. Let's keep it as is, but if they already viewed it, we don't add 1 locally.
+            // Actually, if savedViewed is true, it means they already viewed it in a previous session, and the backend view_count already includes their view. 
+            // So we don't need to add +1 locally.
             setViewed(false);
           }
         } else {
@@ -62,7 +65,7 @@ const BlogPostPage = () => {
       setLoading(false);
     };
     loadPost();
-  }, [slug, viewed]);
+  }, [slug]);
 
   const handleCommentSubmitClick = () => {
     if (!commentName.trim() || !commentText.trim()) {
@@ -271,6 +274,11 @@ const BlogPostPage = () => {
             </div>
           ) : commentStep === 'CAPTCHA' ? (
             <div className="space-y-6">
+              {commentError && (
+                <div className="p-4 rounded-xl bg-red-500/10 border border-red-500/20 text-red-500 text-sm flex items-center gap-2">
+                  <AlertCircle className="w-4 h-4" /> {commentError}
+                </div>
+              )}
               <div className="flex items-center gap-3 text-brand-accent bg-brand-accent/10 p-4 rounded-xl border border-brand-accent/20">
                 <AlertCircle className="w-5 h-5 shrink-0" />
                 <p className="text-sm font-medium">To prove you are human, please solve this math problem:</p>
