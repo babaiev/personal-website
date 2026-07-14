@@ -37,9 +37,11 @@ def send_batch_emails_thread(post_id):
         if cover_url and not cover_url.startswith('http'):
             cover_url = f"{site_url}{cover_url}"
             
+        from django.utils.html import strip_tags
+        
         context = {
             'post_title': post.title,
-            'post_snippet': post.content[:150] + '...',
+            'post_snippet': strip_tags(post.content)[:150] + '...',
             'post_url': post_url,
             'post_image_url': cover_url
         }
